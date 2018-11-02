@@ -7,19 +7,19 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="MainWindow" Height="270" MaxHeight="270" Width="600" MaxWidth="600">
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Label
+        Title="MainWindow" Height="310" MaxHeight="310" Width="600" MaxWidth="600">
+    <Grid Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label
             Name="lblHeading"
             Grid.Row="0"
             Grid.Column="0"
@@ -28,37 +28,37 @@
             FontSize="20"
             Content="Please Enter Login Details"
             />
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,20">
-            <Label Content="Email:" Margin="0,10" />
-            <Label Content="Password:" Margin="0,10" />
-        </StackPanel>
-        
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,0,20">
-            <TextBox Name="tbxEmail" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0,25" TabIndex="0" ToolTip="Please enter your email address"/>
-            <PasswordBox Name="pbxPassword"  Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your password"/>
-            <Label Name="lblErrorMessage" Content=""/>
-        </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,20">
+                <Label Content="Email:" Margin="0,10" />
+                <Label Content="Password:" Margin="0,10" />
+            </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="btnClose" Content="Close"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to Close the Application"/>
-            <Button Name="btnOk" Content="OK"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to enter credentials"/>
-        </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,0,20">
+                <TextBox Name="tbxEmail" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0,25" TabIndex="0" ToolTip="Please enter your email address"/>
+                <PasswordBox Name="pbxPassword"  Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your password"/>
+                <Label Name="lblErrorMessage" Content="Email or Password is incorrect!" Foreground="#FFF50D0D" BorderBrush="Red" BorderThickness="1" Margin="2" />
+            </StackPanel>
 
-      <Image
-        Grid.Row="1"
-        Grid.Column="2"
-        Grid.RowSpan="2"
-        Margin="10"
-        Source="images/logo.jpg" 
-        Stretch="None"
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnClose" Content="Close"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to Close the Application"/>
+                <Button Name="btnOk" Content="OK"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to enter credentials"/>
+            </StackPanel>
+
+            <Image
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.RowSpan="2"
+            Margin="10"
+            Source="images/logo.jpg" 
+            Stretch="None"
         />
-      <Label 
-        Name="lblLogoTest" 
-        Content="MIDLANDS HEALTH CLINIC"
-        Grid.Row="2"
-        Grid.Column="2"
-        HorizontalAlignment="Center"
+            <Label 
+            Name="lblLogoTest" 
+            Content="MIDLANDS HEALTH CLINIC"
+            Grid.Row="2"
+            Grid.Column="2"
+            FontWeight="Black"
+            HorizontalAlignment="Center"
         />
-
     </Grid>
 </Window>
