@@ -1,0 +1,48 @@
+﻿<Window x:Class="HealthServiceManagementSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthServiceManagementSystem"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="MainWindow" Height="250" MaxHeight="250" Width="600" MaxWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label
+            Name="lblHeading"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Content="Please Enter Login Details"
+            />
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,20">
+            <Label Content="Username" Margin="0,10" />
+            <Label Content="Password" Margin="0,10" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,0,20">
+            <TextBox Name="tbxUsername" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0,25" TabIndex="0" ToolTip="Please enter your username"/>
+            <PasswordBox Name="pbxPassword"  Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your password"/>
+            <Label Name="lblErrorMessage" Content=""/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btnClose" Content="Close"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to Close the Application"/>
+            <Button Name="btnOk" Content="OK"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to enter credentials"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
