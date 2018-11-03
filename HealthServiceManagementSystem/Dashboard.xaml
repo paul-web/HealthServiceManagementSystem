@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HealthServiceManagementSystem"
         mc:Ignorable="d"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Title="Dashboard" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -50,5 +50,17 @@
             <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0"/>
             <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0"/>
         </StackPanel>
+
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <Border BorderThickness="2" BorderBrush="#052551" CornerRadius="5" Padding="5">
+
+            </Border>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3">
+            <Border BorderThickness="2" BorderBrush="#052551" CornerRadius="5" Padding="5">
+
+            </Border>
+        </DockPanel>
     </Grid>
 </Window>
