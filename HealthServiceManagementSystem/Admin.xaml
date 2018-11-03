@@ -17,7 +17,81 @@
         <StackPanel>
             <TabControl>
                 <TabItem Header="Users">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                        </Grid.RowDefinitions>
+                        <ListView Name="lstUserList" Grid.Row="0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="username" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn Header="password" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="email" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="access level" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <StackPanel Name="stkUserDetails" Grid.Row="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="16*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"/>
+                                    <ColumnDefinition Width="70*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="Username" />
+                                <Label Grid.Row="1" Grid.Column="0" Content="Password" />
+                                <Label Grid.Row="2" Grid.Column="0" Content="Email" />
+                                <Label Grid.Row="3" Grid.Column="0" Content="Access Level" />
+
+                                <TextBox Grid.Row="0" Grid.Column="1" Name="tbxUserName" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Name="tbxPassword" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Name="tbxEmail" />
+                                <ComboBox Grid.Row="3" Grid.Column="1" Name="cbxAceessLevel" Width="140">
+                                    <ComboBoxItem Content="Employee"/>
+                                    <ComboBoxItem Content="Doctor/Nurse"/>
+                                    <ComboBoxItem Content="Admin"/>
+                                </ComboBox>
+
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Logs">
 
