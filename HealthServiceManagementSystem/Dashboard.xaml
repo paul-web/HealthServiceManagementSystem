@@ -1,14 +1,54 @@
-﻿<Page x:Class="HealthServiceManagementSystem.Dashboard"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:HealthServiceManagementSystem"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Dashboard">
-
+﻿<Window x:Class="HealthServiceManagementSystem.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthServiceManagementSystem"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Dashboard" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBox Name="tbxSearchtext" Height="26" Width="100" Margin="10,0"/>
+            <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0"/>
+            <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0"/>
+        </StackPanel>
+ 
+        <Image
+            Grid.Row="0"
+            Grid.Column="2"
+            Source="images/logo.jpg" 
+            Height="50"
+            Width="auto"
+            />
+
+        <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,0,0">
+            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"/>
+            <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0"/>
+        </StackPanel>
+
+
+        <StackPanel  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="60,0,0,0">
+            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0"/>
+            <Button Name="btnDoctors" Content="Doctors" Height="26" Width="75" Margin="3,0"/>
+            <Button Name="btnNurses" Content="Nurses" Height="26" Width="75" Margin="3,0"/>
+            <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0"/>
+            <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0"/>
+        </StackPanel>
     </Grid>
-</Page>
+</Window>

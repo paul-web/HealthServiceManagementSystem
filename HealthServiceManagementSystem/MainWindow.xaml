@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="MainWindow" Height="310" MaxHeight="310" Width="600" MaxWidth="600">
+        Title="MainWindow" Height="270" MaxHeight="270" Width="600" MaxWidth="600">
     <Grid Margin="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -51,7 +51,7 @@
             Margin="10"
             Source="images/logo.jpg" 
             Stretch="None"
-        />
+            />
             <Label 
             Name="lblLogoTest" 
             Content="MIDLANDS HEALTH CLINIC"

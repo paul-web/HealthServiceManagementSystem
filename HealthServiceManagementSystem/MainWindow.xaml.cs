@@ -23,6 +23,8 @@ namespace HealthServiceManagementSystem
         public MainWindow()
         {
             InitializeComponent();
+
+            lblErrorMessage.Visibility = Visibility.Hidden;
         }
     }
 }
