@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HealthServiceManagementSystem
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for Admin.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class Admin : Page
     {
-        public Dashboard()
+        public Admin()
         {
             InitializeComponent();
-
-            
-
         }
     }
 }

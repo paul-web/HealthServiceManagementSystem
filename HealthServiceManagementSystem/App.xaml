@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:HealthServiceManagementSystem"
              StartupUri="Dashboard.xaml">
     <Application.Resources>
-         
+     
     </Application.Resources>
 </Application>
