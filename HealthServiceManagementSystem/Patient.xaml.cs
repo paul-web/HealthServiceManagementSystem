@@ -27,7 +27,7 @@ namespace HealthServiceManagementSystem
 
         private void submenuAddNewPatient_Click(object sender, RoutedEventArgs e)
         {
-
+            stkPatientDetails.Visibility = Visibility.Visible;
         }
     }
 }

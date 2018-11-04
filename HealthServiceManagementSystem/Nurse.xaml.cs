@@ -29,5 +29,10 @@ namespace HealthServiceManagementSystem
         {
             stkNurseDetails.Visibility = Visibility.Visible;
         }
+
+        private void submenuAddNewNurse_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

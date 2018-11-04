@@ -99,7 +99,8 @@
                         </ListView.ContextMenu>
                     </ListView>
 
-                    <StackPanel Name="stkNurseDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0" Visibility="Collapsed">
+                    <StackPanel Name="stkNurseDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0"  Width="300" Visibility="Collapsed">
+                        <Label Content="Add new nurse:" FontSize="14"/>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="16*"/>
@@ -119,15 +120,15 @@
                             <Label Grid.Row="2" Grid.Column="0" Content="street" />
                             <Label Grid.Row="3" Grid.Column="0" Content="county" />
                             <Label Grid.Row="4" Grid.Column="0" Content="email" />
-                            <Label Grid.Row="4" Grid.Column="0" Content="phone" />
+                            <Label Grid.Row="5" Grid.Column="0" Content="phone" />
 
 
                             <TextBox Grid.Row="0" Grid.Column="1" Name="tbxFirstName" />
                             <TextBox Grid.Row="1" Grid.Column="1" Name="tbxLastName" />
                             <TextBox Grid.Row="2" Grid.Column="1" Name="tbxStreet" />
-                            <TextBox Grid.Row="2" Grid.Column="1" Name="tbxCounty" />
-                            <TextBox Grid.Row="2" Grid.Column="1" Name="tbxEmail" />
-                            <TextBox Grid.Row="3" Grid.Column="1" Name="tbxPhone" />
+                            <TextBox Grid.Row="3" Grid.Column="1" Name="tbxCounty" />
+                            <TextBox Grid.Row="4" Grid.Column="1" Name="tbxEmail" />
+                            <TextBox Grid.Row="5" Grid.Column="1" Name="tbxPhone" />
                         </Grid>
                     </StackPanel>
                 </Grid>
