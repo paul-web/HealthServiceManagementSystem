@@ -37,5 +37,29 @@ namespace HealthServiceManagementSystem
         {
             this.Close();
         }
+
+        private void btnDoctors_Click(object sender, RoutedEventArgs e)
+        {
+            Doctor doctor = new Doctor();
+            doctorFrame.Navigate(doctor);
+        }
+
+        private void btnNurses_Click(object sender, RoutedEventArgs e)
+        {
+            Nurse nurse = new Nurse();
+            nurseFrame.Navigate(nurse);
+        }
+
+        private void btnPatients_Click(object sender, RoutedEventArgs e)
+        {
+            Patient patient = new Patient();
+            patientFrame.Navigate(patient);
+        }
+
+        private void btnOnDuty_Click(object sender, RoutedEventArgs e)
+        {
+            OnDuty onduty = new OnDuty();
+            onDutyFrame.Navigate(onduty);
+        }
     }
 }

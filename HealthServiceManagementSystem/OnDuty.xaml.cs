@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace HealthServiceManagementSystem
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for OnDuty.xaml
     /// </summary>
-    public partial class Admin : Page
+    public partial class OnDuty : Page
     {
-        public Admin()
+        public OnDuty()
         {
             InitializeComponent();
-        }
-
-        private void submenuAddNewUser_Click(object sender, RoutedEventArgs e)
-        {
-            stkUserDetails.Visibility = Visibility.Visible;
-        }
-
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            stkUserDetails.Visibility = Visibility.Collapsed;
         }
     }
 }
