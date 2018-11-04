@@ -77,9 +77,21 @@
                             <ListView.ContextMenu>
                                 <ContextMenu Name="mnuUserListOverview" IsEnabled="True">
                                     <ContextMenu.Items>
-                                        <MenuItem Header="Add new user" Name="submenuAddNewUser" IsEnabled="True"></MenuItem>
-                                        <MenuItem Header="Modify user" Name="submenuModifySelectedUser" IsEnabled="True"></MenuItem>
-                                        <MenuItem Header="Delete user" Name="submenuDeleteSelectedNewUser" IsEnabled="True"></MenuItem>
+                                        <MenuItem Header="Add new user" Name="submenuAddNewUser" IsEnabled="True">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/add.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Modify user" Name="submenuModifySelectedUser" IsEnabled="True">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/update.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Delete user" Name="submenuDeleteSelectedNewUser" IsEnabled="True">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/delete.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
 
                                     </ContextMenu.Items>
                                 </ContextMenu>
