@@ -10,7 +10,7 @@
         Title="Dashboard" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="images/medical-bg-1.jpg" Stretch="UniformToFill" Opacity=".09"/>
+            <ImageBrush ImageSource="images/medical-bg-1.jpg" Stretch="UniformToFill" Opacity=".07"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -28,8 +28,8 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <TextBox Name="tbxSearchtext" Height="26" Width="100" Margin="10,0"/>
-            <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
-            <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
+            <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
+            <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
         </StackPanel>
  
         <Image
@@ -41,17 +41,17 @@
             />
 
         <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,0,0">
-            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Collapsed" Background="#fff" Foreground="#000"/>
-            <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0" Background="#fff" Foreground="#000"/>
+            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Visible" Background="Transparent" Foreground="#000" Click="btnAdmin_Click"/>
+            <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0" Background="Transparent" Foreground="#000"/>
         </StackPanel>
 
 
         <StackPanel  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0" Visibility="Collapsed" Background="#fff" Foreground="#000"/>
-            <Button Name="btnDoctors" Content="Doctors" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
-            <Button Name="btnNurses" Content="Nurses" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
-            <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
-            <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0" Background="#fff" Foreground="#000"/>
+            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0" Visibility="Visible" Background="Transparent" Foreground="#000"/>
+            <Button Name="btnDoctors" Content="Doctors" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
+            <Button Name="btnNurses" Content="Nurses" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
+            <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
+            <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnExit_Click"/>
         </StackPanel>
 
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="1">
@@ -61,14 +61,8 @@
         </DockPanel>
 
         <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">
-            <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".4">
-                <Border.Effect>
-                    <DropShadowEffect 
-                        Color="#00aced"
-                        ShadowDepth="4"
-                        BlurRadius="10"
-                        />
-                </Border.Effect>
+            <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".7">
+                <Frame Name="adminFrame" NavigationUIVisibility="Hidden"/>
             </Border>
         </DockPanel>
     </Grid>
