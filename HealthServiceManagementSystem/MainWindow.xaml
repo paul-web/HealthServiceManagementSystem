@@ -20,7 +20,6 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Label
-            Name="lblHeading"
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="3"

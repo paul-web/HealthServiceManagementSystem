@@ -126,10 +126,10 @@
                                     <TextBox Grid.Row="1" Grid.Column="1" Name="tbxLastName" />
                                     <TextBox Grid.Row="2" Grid.Column="1" Name="tbxPassword" />
                                     <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
-                                    <ComboBox Grid.Row="4" Grid.Column="1" Name="cbxAceessLevel" Width="140" Background="Transparent">
+                                    <ComboBox Grid.Row="4" Grid.Column="1" Name="cbxAccessLevel" Width="140" Background="Transparent">
                                         <ComboBoxItem Content="Employee"/>
                                         <ComboBoxItem Content="Doctor/Nurse"/>
-                                        <ComboBoxItem Content="Admin"/>
+                                        <ComboBoxItem Content="Administrator"/>
                                     </ComboBox>
                                     <Button Name="btnUpdate" Content="Update" Grid.Row="5" Grid.Column="1" Width="140" Height="26" Background="Transparent" Click="btnUpdate_Click"/>
                                 </Grid>
