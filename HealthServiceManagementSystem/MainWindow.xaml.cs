@@ -25,8 +25,6 @@ namespace HealthServiceManagementSystem
         public MainWindow()
         {
             InitializeComponent();
-
-            lblErrorMessage.Visibility = Visibility.Hidden;
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
@@ -34,9 +32,22 @@ namespace HealthServiceManagementSystem
             string currentEmail = tbxEmail.Text;
             string currentPassword = pbxPassword.Password;
 
-            foreach (var user in db.Users.Where(t => t.Email == currentEmail))
+            foreach (var user in db.Users)
             {
-                MessageBox.Show("User authenticated!");
+                if (user.Email == currentEmail && user.Password == currentPassword)
+                {
+                    MessageBox.Show("User authenticated!");
+                    Dashboard dashboard = new Dashboard();
+                    this.Close();
+                    dashboard.Show();
+                }
+                else
+                {
+                    tbxEmail.Text = String.Empty;
+                    pbxPassword.Password = "";
+                    lblErrorMessage.Visibility = Visibility.Visible;
+                }
+
             }
         }
     }

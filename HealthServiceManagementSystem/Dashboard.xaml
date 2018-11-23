@@ -42,7 +42,7 @@
             />
 
         <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,0,0">
-            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Visible" Background="Transparent" Foreground="#000" Click="btnAdmin_Click"/>
+            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Collapsed" Background="Transparent" Foreground="#000" Click="btnAdmin_Click"/>
             <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0" Background="Transparent" Foreground="#000"/>
         </StackPanel>
 
