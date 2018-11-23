@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthServiceManagementSystem", "HealthServiceManagementSystem\HealthServiceManagementSystem.csproj", "{5BFF9209-E355-4819-BA03-78A6DC8AAEC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLibrary", "DBLibrary\DBLibrary.csproj", "{61D23DB0-2EF1-41C3-AB71-653BA9B031E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5BFF9209-E355-4819-BA03-78A6DC8AAEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BFF9209-E355-4819-BA03-78A6DC8AAEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BFF9209-E355-4819-BA03-78A6DC8AAEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D23DB0-2EF1-41C3-AB71-653BA9B031E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D23DB0-2EF1-41C3-AB71-653BA9B031E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D23DB0-2EF1-41C3-AB71-653BA9B031E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D23DB0-2EF1-41C3-AB71-653BA9B031E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,23 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'"); 
         public MainWindow()
         {
             InitializeComponent();
 
             lblErrorMessage.Visibility = Visibility.Hidden;
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            string currentEmail = tbxEmail.Text;
+            string currentPassword = pbxPassword.Password;
+
+            foreach (var user in db.Users.Where(t => t.Email == currentEmail))
+            {
+                MessageBox.Show("User authenticated!");
+            }
         }
     }
 }
