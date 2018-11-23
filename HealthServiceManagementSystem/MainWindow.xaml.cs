@@ -36,10 +36,10 @@ namespace HealthServiceManagementSystem
             {
                 if (user.Email == currentEmail && user.Password == currentPassword)
                 {
-                    MessageBox.Show("User authenticated!");
                     Dashboard dashboard = new Dashboard();
-                    this.Close();
-                    dashboard.Show();
+                    dashboard.user = user;
+                    this.Hide();
+                    dashboard.ShowDialog();
                 }
                 else
                 {

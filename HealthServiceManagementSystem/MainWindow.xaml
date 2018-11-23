@@ -35,7 +35,7 @@
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,0,20">
                 <TextBox Name="tbxEmail" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0,25" TabIndex="0" ToolTip="Please enter your email address"/>
                 <PasswordBox Name="pbxPassword"  Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your password"/>
-                <Label Name="lblErrorMessage" Content="Email or Password is incorrect!" Foreground="#FFF50D0D" BorderBrush="Red" BorderThickness="1" Margin="2" Visibility="Hidden" />
+            <Label Name="lblErrorMessage" Content="Email or Password is incorrect!" Foreground="#FFF50D0D" BorderBrush="Red" BorderThickness="1" Margin="2" Visibility="Hidden" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">

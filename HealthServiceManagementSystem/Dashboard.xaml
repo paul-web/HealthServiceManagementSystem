@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:HealthServiceManagementSystem"
         mc:Ignorable="d"
         WindowStyle="None"
+        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         Title="Dashboard" Height="450" Width="850">
 
@@ -48,7 +49,7 @@
 
 
         <StackPanel  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0" Visibility="Visible" Background="Transparent" Foreground="#000" Click="btnPatients_Click"/>
+            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0" Visibility="Collapsed" Background="Transparent" Foreground="#000" Click="btnPatients_Click"/>
             <Button Name="btnDoctors" Content="Doctors" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnDoctors_Click"/>
             <Button Name="btnNurses" Content="Nurses" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnNurses_Click"/>
             <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnOnDuty_Click"/>

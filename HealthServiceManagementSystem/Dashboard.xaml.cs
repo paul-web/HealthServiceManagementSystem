@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Dashboard : Window
     {
+        public User user = new User();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -60,6 +63,24 @@ namespace HealthServiceManagementSystem
         {
             OnDuty onduty = new OnDuty();
             onDutyFrame.Navigate(onduty);
+        }
+
+        private void CheckUserAccess()
+        {
+            if (user.LevelID == 1)
+            {
+                btnAdmin.Visibility = Visibility.Visible;
+            }
+
+            if (user.LevelID == 2)
+            {
+                btnPatients.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckUserAccess();
         }
     }
 }
