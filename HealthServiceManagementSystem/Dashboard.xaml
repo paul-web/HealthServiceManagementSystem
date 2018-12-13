@@ -15,24 +15,34 @@
             <ImageBrush ImageSource="images/clinic-bg-2.jpg" Stretch="UniformToFill" Opacity=".1"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch">
+                <MenuItem Header="_Search">
+                    <MenuItem Header="Search for...">
+                        <TextBox Name="tbxSearchItem" Width="150" />
+                    </MenuItem>
+                    <MenuItem Header="_Reset" />
+                </MenuItem>    
+            </Menu>
+        </StackPanel>
+
+        
+        <!--
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <TextBox Name="tbxSearchtext" Height="26" Width="100" Margin="10,0"/>
             <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
             <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
         </StackPanel>
+        -->
  
         <Image
             Grid.Row="0"
@@ -40,8 +50,10 @@
             Source="images/logo.jpg" 
             Height="50"
             Width="auto"
+            Margin="340,0,0,0"
             />
 
+        <!--
         <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,0,0">
             <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Collapsed" Background="Transparent" Foreground="#000" Click="btnAdmin_Click"/>
             <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0" Background="Transparent" Foreground="#000"/>
@@ -55,6 +67,7 @@
             <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnOnDuty_Click"/>
             <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnExit_Click"/>
         </StackPanel>
+        -->
 
 
             <DockPanel Name="dkplDoctors" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">

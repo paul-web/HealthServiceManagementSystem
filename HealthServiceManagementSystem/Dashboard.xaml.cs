@@ -30,6 +30,8 @@ namespace HealthServiceManagementSystem
 
         }
 
+
+        /*
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
             Admin admin = new Admin();
@@ -64,17 +66,18 @@ namespace HealthServiceManagementSystem
             OnDuty onduty = new OnDuty();
             onDutyFrame.Navigate(onduty);
         }
+        */
 
         private void CheckUserAccess()
         {
             if (user.LevelID == 1)
             {
-                btnAdmin.Visibility = Visibility.Visible;
+                // btnAdmin.Visibility = Visibility.Visible;
             }
 
             if (user.LevelID == 2)
             {
-                btnPatients.Visibility = Visibility.Visible;
+                // btnPatients.Visibility = Visibility.Visible;
             }
         }
 
