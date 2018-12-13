@@ -29,8 +29,18 @@
                 <MenuItem Header="_Search">
                     <MenuItem Header="Search for...">
                         <TextBox Name="tbxSearchItem" Width="150" />
+                        <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
                     </MenuItem>
+                    <Separator/>
                     <MenuItem Header="_Reset" />
+                </MenuItem>
+                <MenuItem Header="_Admin" Margin="10,0" />
+                <MenuItem Header="_Doctors"  Margin="10,0" />
+                <MenuItem Header="_Nurses"  Margin="10,0" />
+                <MenuItem Header="_Patients"  Margin="10,0" />
+                <MenuItem Header="_On Duty"  Margin="10,0" />
+                <MenuItem Header="_Application"  Margin="10,0">
+                    <MenuItem Header="_Exit" />
                 </MenuItem>    
             </Menu>
         </StackPanel>
