@@ -85,5 +85,15 @@ namespace HealthServiceManagementSystem
         {
             CheckUserAccess();
         }
+
+        private void MenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnuShowGroups_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Message box has been clicked!");
+        }
     }
 }

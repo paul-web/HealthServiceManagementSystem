@@ -34,14 +34,31 @@
                     <Separator/>
                     <MenuItem Header="_Reset" />
                 </MenuItem>
-                <MenuItem Header="_Admin" Margin="10,0" />
+                <MenuItem Header="_Admin" Margin="10,0" Padding="10,5" />
                 <MenuItem Header="_Doctors"  Margin="10,0" />
                 <MenuItem Header="_Nurses"  Margin="10,0" />
                 <MenuItem Header="_Patients"  Margin="10,0" />
                 <MenuItem Header="_On Duty"  Margin="10,0" />
                 <MenuItem Header="_Application"  Margin="10,0">
                     <MenuItem Header="_Exit" />
-                </MenuItem>    
+                </MenuItem>
+                <MenuItem Header="_Tools"  Margin="10,0">
+                    <MenuItem Header="_Manage users">
+                        <MenuItem.Icon>
+                            <Image Source="images/users.png" Width="17" Height="17"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem 
+                        Name="mnuShowGroups"
+                        Header="_Show groups" 
+                        IsCheckable="True" 
+                        IsChecked="False"
+                        Checked="mnuShowGroups_Checked">
+                        <MenuItem.Icon>
+                            <Image Source="images/user_groups.png" Width="17" Height="17"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
             </Menu>
         </StackPanel>
 
@@ -55,12 +72,12 @@
         -->
  
         <Image
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="2"
             Source="images/logo.jpg" 
             Height="50"
             Width="auto"
-            Margin="340,0,0,0"
+            Margin="370,0,0,0"
             />
 
         <!--
