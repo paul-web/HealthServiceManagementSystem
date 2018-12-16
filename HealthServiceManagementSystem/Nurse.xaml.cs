@@ -20,6 +20,7 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Nurse : Page
     {
+
         public Nurse()
         {
             InitializeComponent();
@@ -34,5 +35,8 @@ namespace HealthServiceManagementSystem
         {
 
         }
+
+      
+
     }
 }

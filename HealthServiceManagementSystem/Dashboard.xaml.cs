@@ -31,53 +31,18 @@ namespace HealthServiceManagementSystem
         }
 
 
-        /*
-        private void btnAdmin_Click(object sender, RoutedEventArgs e)
-        {
-            Admin admin = new Admin();
-            adminFrame.Navigate(admin);
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnDoctors_Click(object sender, RoutedEventArgs e)
-        {
-            Doctor doctor = new Doctor();
-            doctorFrame.Navigate(doctor);
-        }
-
-        private void btnNurses_Click(object sender, RoutedEventArgs e)
-        {
-            Nurse nurse = new Nurse();
-            nurseFrame.Navigate(nurse);
-        }
-
-        private void btnPatients_Click(object sender, RoutedEventArgs e)
-        {
-            Patient patient = new Patient();
-            patientFrame.Navigate(patient);
-        }
-
-        private void btnOnDuty_Click(object sender, RoutedEventArgs e)
-        {
-            OnDuty onduty = new OnDuty();
-            onDutyFrame.Navigate(onduty);
-        }
-        */
-
         private void CheckUserAccess()
         {
             if (user.LevelID == 1)
             {
-                // btnAdmin.Visibility = Visibility.Visible;
+                mnuPatients.Visibility = Visibility.Visible;
+                mnuAdmin.Visibility = Visibility.Visible;
+              
             }
 
             if (user.LevelID == 2)
             {
-                // btnPatients.Visibility = Visibility.Visible;
+                mnuPatients.Visibility = Visibility.Visible;
             }
         }
 
@@ -94,6 +59,41 @@ namespace HealthServiceManagementSystem
         private void mnuShowGroups_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Message box has been clicked!");
+        }
+
+        public void mnuAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            adminFrame.Navigate(admin);
+        }
+
+        public void mnuDoctors_Click(object sender, RoutedEventArgs e)
+        {
+            Doctor doctor = new Doctor();
+            doctorFrame.Navigate(doctor);
+        }
+
+        public void mnuNurses_Click(object sender, RoutedEventArgs e)
+        {
+            Nurse nurse = new Nurse();
+            nurseFrame.Navigate(nurse);
+        }
+
+        public void mnuPatients_Click(object sender, RoutedEventArgs e)
+        {
+            Patient patient = new Patient();
+            patientFrame.Navigate(patient);
+        }
+
+        public void mnuOnDuty_Click(object sender, RoutedEventArgs e)
+        {
+            OnDuty onduty = new OnDuty();
+            onDutyFrame.Navigate(onduty);
+        }
+
+        private void mnuExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

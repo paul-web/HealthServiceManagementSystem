@@ -17,6 +17,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel>
+                <TextBlock Text="Nurses"></TextBlock>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50*"/>

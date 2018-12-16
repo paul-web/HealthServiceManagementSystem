@@ -20,6 +20,7 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Doctor : Page
     {
+
         public Doctor()
         {
             InitializeComponent();
@@ -29,5 +30,6 @@ namespace HealthServiceManagementSystem
         {
             stkDoctorDetails.Visibility = Visibility.Visible;
         }
+
     }
 }

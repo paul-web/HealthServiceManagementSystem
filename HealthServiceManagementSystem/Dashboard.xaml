@@ -34,13 +34,13 @@
                     <Separator/>
                     <MenuItem Header="_Reset" />
                 </MenuItem>
-                <MenuItem Header="_Admin" Margin="10,0" Padding="10,5" />
-                <MenuItem Header="_Doctors"  Margin="10,0" />
-                <MenuItem Header="_Nurses"  Margin="10,0" />
-                <MenuItem Header="_Patients"  Margin="10,0" />
-                <MenuItem Header="_On Duty"  Margin="10,0" />
-                <MenuItem Header="_Application"  Margin="10,0">
-                    <MenuItem Header="_Exit" />
+                <MenuItem Name="mnuAdmin" Header="_Admin" Margin="10,0" Padding="10,5" Visibility="Collapsed" Click="mnuAdmin_Click" />
+                <MenuItem Name="mnuDoctors" Header="_Doctors"  Margin="10,0" Click="mnuDoctors_Click"/>
+                <MenuItem Name="mnuNurses" Header="_Nurses"  Margin="10,0" Click="mnuNurses_Click" />
+                <MenuItem Name="mnuPatients" Header="_Patients"  Margin="10,0" Visibility="Collapsed" Click="mnuPatients_Click" />
+                <MenuItem Name="mnuOnDuty" Header="_On Duty"  Margin="10,0" Click="mnuOnDuty_Click"/>
+                <MenuItem Name="mnuApplication" Header="_Application"  Margin="10,0">
+                    <MenuItem Name="mnuExit" Header="_Exit" Click="mnuExit_Click" />
                 </MenuItem>
                 <MenuItem Header="_Tools"  Margin="10,0">
                     <MenuItem Header="_Manage users">
