@@ -20,6 +20,7 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Doctor : Page
     {
+        List<Doctor> doctors = new List<Doctor>();
 
         public Doctor()
         {
@@ -30,6 +31,7 @@ namespace HealthServiceManagementSystem
         {
             stkDoctorDetails.Visibility = Visibility.Visible;
         }
+
 
     }
 }

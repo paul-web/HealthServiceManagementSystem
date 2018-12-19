@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,9 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Nurse : Page
     {
+        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
+
+        List<Nurse> nurses = new List<Nurse>();
 
         public Nurse()
         {
@@ -36,7 +40,14 @@ namespace HealthServiceManagementSystem
 
         }
 
-      
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            lstNurseList.ItemsSource = nurses;
 
+            foreach (var nurse in db.Nurses)
+            {
+                nurses.Add(nurse);
+            }
+        }
     }
 }

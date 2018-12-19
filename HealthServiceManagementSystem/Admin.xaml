@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:HealthServiceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
       Title="Admin">
 
     <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".7">
@@ -38,7 +39,7 @@
                                         <GridViewColumn Header="first name" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding FirstName}"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
@@ -46,7 +47,7 @@
                                         <GridViewColumn Header="last name" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LastName}"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
@@ -55,7 +56,7 @@
                                         <GridViewColumn Header="password" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Password}"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
@@ -63,7 +64,7 @@
                                         <GridViewColumn Header="email" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Email}"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>

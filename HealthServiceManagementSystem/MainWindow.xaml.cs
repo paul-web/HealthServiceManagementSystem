@@ -38,8 +38,8 @@ namespace HealthServiceManagementSystem
                 {
                     Dashboard dashboard = new Dashboard();
                     dashboard.user = user;
-                    this.Hide();
                     dashboard.ShowDialog();
+                    this.Hide();
                 }
                 else
                 {
@@ -54,6 +54,7 @@ namespace HealthServiceManagementSystem
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Environment.Exit(0);
         }
     }
 }

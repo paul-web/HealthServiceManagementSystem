@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:HealthServiceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
       Title="Nurse">
 
     <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".7">

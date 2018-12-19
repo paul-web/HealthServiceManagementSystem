@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Admin : Page
     {
+        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
+
+        List<User> users = new List<User>();
+
         public Admin()
         {
             InitializeComponent();
@@ -33,6 +38,15 @@ namespace HealthServiceManagementSystem
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             stkUserDetails.Visibility = Visibility.Collapsed;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            lstUserList.ItemsSource = users;
+            foreach (var user in db.Users)
+            {
+                users.Add(user);
+            }
         }
     }
 }

@@ -16,16 +16,20 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="331*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="394*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="254*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="45*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+            <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch" Background="Transparent">
                 <MenuItem Header="_Search">
                     <MenuItem Header="Search for...">
                         <TextBox Name="tbxSearchItem" Width="150" />
@@ -60,50 +64,23 @@
                     </MenuItem>
                 </MenuItem>
             </Menu>
+            <Button Name="backButton" Width="40" HorizontalAlignment="Left" Margin="5,15" Click="backButton_Click" Background="Transparent" BorderThickness="0">
+                <Image Source="images/back.png" Width="25" Height="auto" />
+            </Button>
         </StackPanel>
 
-        
-        <!--
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <TextBox Name="tbxSearchtext" Height="26" Width="100" Margin="10,0"/>
-            <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
-            <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
-        </StackPanel>
-        -->
- 
         <Image
-            Grid.Row="1"
-            Grid.Column="2"
+            Grid.Row="0"
+            Grid.Column="3"
             Source="images/logo.jpg" 
             Height="50"
             Width="auto"
-            Margin="370,0,0,0"
+            Margin="116,18,2,7" Grid.ColumnSpan="2"
             />
 
-        <!--
-        <StackPanel Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="40,0,0,0">
-            <Button Name="btnAdmin" Content="Admin" Height="26" Width="50" Margin="3,0"  Visibility="Collapsed" Background="Transparent" Foreground="#000" Click="btnAdmin_Click"/>
-            <Button Name="btnLogout" Content="Logout" Height="26" Width="50" Margin="3,0" Background="Transparent" Foreground="#000"/>
-        </StackPanel>
 
-
-        <StackPanel  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-            <Button Name="btnPatients" Content="Patients" Height="26" Width="75" Margin="3,0" Visibility="Collapsed" Background="Transparent" Foreground="#000" Click="btnPatients_Click"/>
-            <Button Name="btnDoctors" Content="Doctors" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnDoctors_Click"/>
-            <Button Name="btnNurses" Content="Nurses" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnNurses_Click"/>
-            <Button Name="btnOnDuty" Content="On Duty" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnOnDuty_Click"/>
-            <Button Name="btnExit" Content="Exit" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000" Click="btnExit_Click"/>
-        </StackPanel>
-        -->
-
-
-            <DockPanel Name="dkplDoctors" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">
-                <Frame Name="doctorFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="nurseFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="patientFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="onDutyFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="adminFrame" NavigationUIVisibility="Hidden"/>
-
+        <DockPanel Name="dkplDoctors" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Margin="10" Grid.RowSpan="2">
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
     </Grid>
 </Window>

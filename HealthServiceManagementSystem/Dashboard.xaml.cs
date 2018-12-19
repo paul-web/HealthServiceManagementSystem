@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace HealthServiceManagementSystem
 {
@@ -63,37 +64,45 @@ namespace HealthServiceManagementSystem
 
         public void mnuAdmin_Click(object sender, RoutedEventArgs e)
         {
-            Admin admin = new Admin();
-            adminFrame.Navigate(admin);
+            mainFrame.Navigate(new Admin());
         }
 
         public void mnuDoctors_Click(object sender, RoutedEventArgs e)
         {
-            Doctor doctor = new Doctor();
-            doctorFrame.Navigate(doctor);
+            mainFrame.Navigate(new Doctor());
         }
 
         public void mnuNurses_Click(object sender, RoutedEventArgs e)
         {
-            Nurse nurse = new Nurse();
-            nurseFrame.Navigate(nurse);
+            mainFrame.Navigate(new Nurse());
         }
 
         public void mnuPatients_Click(object sender, RoutedEventArgs e)
         {
-            Patient patient = new Patient();
-            patientFrame.Navigate(patient);
+            mainFrame.Navigate(new Patient());
         }
 
         public void mnuOnDuty_Click(object sender, RoutedEventArgs e)
         {
-            OnDuty onduty = new OnDuty();
-            onDutyFrame.Navigate(onduty);
+            mainFrame.Navigate(new OnDuty());
         }
 
         private void mnuExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Environment.Exit(0);
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.mainFrame.CanGoBack)
+            {
+                this.mainFrame.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("No entries in back navigation history!");
+            }
         }
     }
 }
