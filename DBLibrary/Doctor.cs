@@ -14,11 +14,7 @@ namespace DBLibrary
     
     public partial class Doctor
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Doctor()
-        {
-            this.Patients = new HashSet<Patient>();
-        }
+     
     
         public int DoctorID { get; set; }
         public string FirstName { get; set; }
@@ -30,7 +26,6 @@ namespace DBLibrary
         public int UserID { get; set; }
     
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient> Patients { get; set; }
+   
     }
 }
