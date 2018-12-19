@@ -149,24 +149,40 @@
                                         <GridViewColumn Header="Date/Time" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Date}" TextAlignment="Center"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
 
-                                        <GridViewColumn Header="Event" Width="150">
+                                        <GridViewColumn Header="Category" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Category}" TextAlignment="Center"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
 
+
+                                        <GridViewColumn Header="Description" Width="150">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Description}" TextAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
 
                                         <GridViewColumn Header="User ID" Width="150">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserId}" TextAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="Log ID" Width="150">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LogId}" TextAlignment="Center"/>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>

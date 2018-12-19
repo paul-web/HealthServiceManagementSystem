@@ -29,6 +29,8 @@ namespace HealthServiceManagementSystem
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
+            User validatedUser = new User();
+            bool login = false;
             string currentEmail = tbxEmail.Text;
             string currentPassword = pbxPassword.Password;
 
@@ -36,10 +38,13 @@ namespace HealthServiceManagementSystem
             {
                 if (user.Email == currentEmail && user.Password == currentPassword)
                 {
+                    login = true;
+                    validatedUser = user;
                     Dashboard dashboard = new Dashboard();
-                    dashboard.user = user;
-                    dashboard.ShowDialog();
+                    dashboard.user = validatedUser;
                     this.Hide();
+
+                    dashboard.ShowDialog();
                 }
                 else
                 {
@@ -49,6 +54,38 @@ namespace HealthServiceManagementSystem
                 }
 
             }
+
+            if (login)
+            {
+                CreateLogEntry("Login", "Logged in.", Convert.ToInt16(validatedUser.UserId), validatedUser.Email);
+
+            }
+            else
+            {
+                // database null user has ID 1010 for logging failed user login attempts
+                CreateLogEntry("Failed Login", "Didnt login.", 1010, currentEmail);
+            }
+        }
+
+        private void CreateLogEntry(string category, string description, int userID, string email)
+        {
+
+            string comment = $"{description} user credentials = {email}";
+
+            Log log = new Log();
+            log.UserId = userID;
+            log.Category = category;
+            log.Description = comment;
+            log.Date = DateTime.Now;
+            SaveLog(log);
+        }
+
+        private void SaveLog(Log log)
+        {
+            db.Entry(log).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+
+            // other option: int result = db.SaveChanges(), return result, return type int
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

@@ -44,10 +44,10 @@ namespace HealthServiceManagementSystem
         {
             lstNurseList.ItemsSource = nurses;
 
-            foreach (var nurse in db.Nurses)
+            /*foreach (var nurse in db.Nurses)
             {
                 nurses.Add(nurse);
-            }
+            }*/
         }
     }
 }
