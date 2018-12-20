@@ -32,7 +32,7 @@
             <Button Name="btnSearch" Content="Search" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
             <Button Name="btnReset" Content="Reset" Height="26" Width="75" Margin="3,0" Background="Transparent" Foreground="#000"/>
         </StackPanel>
- 
+
         <Image
             Grid.Row="0"
             Grid.Column="2"
@@ -56,7 +56,7 @@
         </StackPanel>
 
 
-            <DockPanel Name="dkplDoctors" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">
+        <DockPanel Name="dkplDoctors" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">
             <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBaseLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,10 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Dashboard : Window
     {
+        public User user = new User();
         public Dashboard()
         {
             InitializeComponent();
-
-            
-
         }
 
         private void btnAdmin_Click(object sender, RoutedEventArgs e)

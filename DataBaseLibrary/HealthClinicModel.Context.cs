@@ -13,9 +13,9 @@ namespace DataBaseLibrary
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HealthSeviceEntities : DbContext
+    public partial class HealthServiceEntities : DbContext
     {
-        public HealthSeviceEntities()
+        public HealthServiceEntities(string v)
             : base("name=HealthSeviceEntities")
         {
         }
