@@ -23,7 +23,7 @@ namespace HealthServiceManagementSystem
     {
         HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
 
-        List<Nurse> nurses = new List<Nurse>();
+        List<DBLibrary.Nurse> nurses = new List<DBLibrary.Nurse>();
 
         public Nurse()
         {

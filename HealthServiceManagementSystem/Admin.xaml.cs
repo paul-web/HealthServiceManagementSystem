@@ -24,6 +24,7 @@ namespace HealthServiceManagementSystem
         HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
 
         List<User> users = new List<User>();
+        List<Log> logs = new List<Log>();
 
         public Admin()
         {
@@ -46,6 +47,12 @@ namespace HealthServiceManagementSystem
             foreach (var user in db.Users)
             {
                 users.Add(user);
+            }
+
+            lstLogList.ItemsSource = logs;
+            foreach (var log in db.Logs)
+            {
+                logs.Add(log);
             }
         }
     }
