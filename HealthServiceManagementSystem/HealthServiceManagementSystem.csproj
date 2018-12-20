@@ -63,7 +63,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Doctor.xaml">
+    <Page Include="DoctorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,14 +81,14 @@
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Doctor.xaml.cs">
-      <DependentUpon>Doctor.xaml</DependentUpon>
+    <Compile Include="DoctorView.xaml.cs">
+      <DependentUpon>DoctorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Nurse.xaml">
+    <Page Include="NurseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,20 +96,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Patient.xaml">
+    <Page Include="PatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nurse.xaml.cs">
-      <DependentUpon>Nurse.xaml</DependentUpon>
+    <Compile Include="NurseView.xaml.cs">
+      <DependentUpon>NurseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="OnDuty.xaml.cs">
       <DependentUpon>OnDuty.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Patient.xaml.cs">
-      <DependentUpon>Patient.xaml</DependentUpon>
+    <Compile Include="PatientView.xaml.cs">
+      <DependentUpon>PatientView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

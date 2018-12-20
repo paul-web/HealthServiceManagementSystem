@@ -1,4 +1,4 @@
-﻿<Page x:Class="HealthServiceManagementSystem.Patient"
+﻿<Page x:Class="HealthServiceManagementSystem.DoctorView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HealthServiceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Patient">
+      Title="DoctorView">
 
     <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".7">
 
@@ -22,10 +22,10 @@
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="50*"/>
                     </Grid.RowDefinitions>
-                    <ListView Name="lstPatientList" Grid.Row="0">
+                    <ListView Name="lstDoctorList" Grid.Row="0">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="first name" Width="135">
+                                <GridViewColumn Header="first name" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
@@ -33,7 +33,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="last name" Width="135">
+                                <GridViewColumn Header="last name" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
@@ -42,7 +42,7 @@
                                 </GridViewColumn>
 
 
-                                <GridViewColumn Header="address" Width="135">
+                                <GridViewColumn Header="address" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
@@ -50,7 +50,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="email" Width="135">
+                                <GridViewColumn Header="email" Width="170">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
@@ -58,15 +58,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="phone" Width="135">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-
-                                <GridViewColumn Header="doctor" Width="135">
+                                <GridViewColumn Header="phone" Width="160">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
@@ -76,19 +68,19 @@
                             </GridView>
                         </ListView.View>
                         <ListView.ContextMenu>
-                            <ContextMenu Name="mnuPatientListOverview" IsEnabled="True">
+                            <ContextMenu Name="mnuDoctorListOverview" IsEnabled="True">
                                 <ContextMenu.Items>
-                                    <MenuItem Header="Add new patient" Name="submenuAddNewPatient" IsEnabled="True" Click="submenuAddNewPatient_Click">
+                                    <MenuItem Header="Add new docter" Name="submenuAddNewDoctor" IsEnabled="True" Click="submenuAddNewDoctor_Click">
                                         <MenuItem.Icon>
                                             <Image Source="images/add.png" Width="17" Height="17"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Modify patient" Name="submenuModifySelectedNurse" IsEnabled="False">
+                                    <MenuItem Header="Modify doctor" Name="submenuModifySelectedDoctor" IsEnabled="False">
                                         <MenuItem.Icon>
                                             <Image Source="images/update.png" Width="17" Height="17"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Delete patient" Name="submenuDeleteSelectedNewPatient" IsEnabled="False">
+                                    <MenuItem Header="Delete doctor" Name="submenuDeleteSelectedNewDoctor" IsEnabled="False">
                                         <MenuItem.Icon>
                                             <Image Source="images/delete.png" Width="17" Height="17"/>
                                         </MenuItem.Icon>
@@ -99,8 +91,8 @@
                         </ListView.ContextMenu>
                     </ListView>
 
-                    <StackPanel Name="stkPatientDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0" Width="300" Visibility="Collapsed">
-                        <Label Content="Add new patient:" FontSize="14"/>
+                    <StackPanel Name="stkDoctorDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0" Width="300" Visibility="Collapsed">
+                        <Label Content="Add new doctor:" FontSize="14"/>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="16*"/>
@@ -120,7 +112,6 @@
                             <Label Grid.Row="2" Grid.Column="0" Content="address" />
                             <Label Grid.Row="3" Grid.Column="0" Content="email" />
                             <Label Grid.Row="4" Grid.Column="0" Content="phone" />
-                            <Label Grid.Row="5" Grid.Column="0" Content="doctor" />
 
 
                             <TextBox Grid.Row="0" Grid.Column="1" Name="tbxFirstName" />
@@ -128,7 +119,6 @@
                             <TextBox Grid.Row="2" Grid.Column="1" Name="tbxAddress" />
                             <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
                             <TextBox Grid.Row="4" Grid.Column="1" Name="tbxPhone" />
-                            <TextBox Grid.Row="5" Grid.Column="1" Name="tbxDoctor" />
                         </Grid>
                     </StackPanel>
                 </Grid>

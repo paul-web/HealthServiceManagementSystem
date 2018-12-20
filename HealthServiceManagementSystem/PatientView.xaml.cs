@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace HealthServiceManagementSystem
 {
     /// <summary>
-    /// Interaction logic for Doctor.xaml
+    /// Interaction logic for PatientView.xaml
     /// </summary>
-    public partial class Doctor : Page
+    public partial class PatientView : Page
     {
-        public Doctor()
+        public PatientView()
         {
             InitializeComponent();
         }
 
-        private void submenuAddNewDoctor_Click(object sender, RoutedEventArgs e)
+        private void submenuAddNewPatient_Click(object sender, RoutedEventArgs e)
         {
-            stkDoctorDetails.Visibility = Visibility.Visible;
+            stkPatientDetails.Visibility = Visibility.Visible;
         }
     }
 }

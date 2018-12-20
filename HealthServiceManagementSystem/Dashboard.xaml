@@ -57,12 +57,7 @@
 
 
             <DockPanel Name="dkplDoctors" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="10">
-                <Frame Name="doctorFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="nurseFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="patientFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="onDutyFrame" NavigationUIVisibility="Hidden"/>
-                <Frame Name="adminFrame" NavigationUIVisibility="Hidden"/>
-
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
     </Grid>
 </Window>

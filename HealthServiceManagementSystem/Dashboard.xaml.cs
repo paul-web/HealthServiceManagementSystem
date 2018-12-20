@@ -30,7 +30,7 @@ namespace HealthServiceManagementSystem
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
             Admin admin = new Admin();
-            adminFrame.Navigate(admin);
+            mainFrame.Navigate(admin);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -40,26 +40,26 @@ namespace HealthServiceManagementSystem
 
         private void btnDoctors_Click(object sender, RoutedEventArgs e)
         {
-            Doctor doctor = new Doctor();
-            doctorFrame.Navigate(doctor);
+            DoctorView doctorView = new DoctorView();
+            mainFrame.Navigate(doctorView);
         }
 
         private void btnNurses_Click(object sender, RoutedEventArgs e)
         {
-            Nurse nurse = new Nurse();
-            nurseFrame.Navigate(nurse);
+            NurseView nurseView = new NurseView();
+            mainFrame.Navigate(nurseView);
         }
 
         private void btnPatients_Click(object sender, RoutedEventArgs e)
         {
-            Patient patient = new Patient();
-            patientFrame.Navigate(patient);
+            PatientView patientView = new PatientView();
+            mainFrame.Navigate(patientView);
         }
 
         private void btnOnDuty_Click(object sender, RoutedEventArgs e)
         {
             OnDuty onduty = new OnDuty();
-            onDutyFrame.Navigate(onduty);
+            mainFrame.Navigate(onduty);
         }
     }
 }
