@@ -1,0 +1,141 @@
+﻿<Page x:Class="HealthServiceManagementSystem.PatientView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthServiceManagementSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="PatientView">
+    
+    <Border BorderThickness="1" BorderBrush="#111" CornerRadius="10" Padding="5" Opacity=".7">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <ListView Name="lstPatientList" Grid.Row="0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="first name" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="last name" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+
+                                <GridViewColumn Header="address" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="email" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="phone" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="doctor" Width="135">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ContextMenu>
+                            <ContextMenu Name="mnuPatientListOverview" IsEnabled="True">
+                                <ContextMenu.Items>
+                                    <MenuItem Header="Add new patient" Name="submenuAddNewPatient" IsEnabled="True" Click="submenuAddNewPatient_Click">
+                                        <MenuItem.Icon>
+                                            <Image Source="images/add.png" Width="17" Height="17"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Modify patient" Name="submenuModifySelectedNurse" IsEnabled="False">
+                                        <MenuItem.Icon>
+                                            <Image Source="images/update.png" Width="17" Height="17"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Delete patient" Name="submenuDeleteSelectedNewPatient" IsEnabled="False">
+                                        <MenuItem.Icon>
+                                            <Image Source="images/delete.png" Width="17" Height="17"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                </ContextMenu.Items>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+
+                    <StackPanel Name="stkPatientDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0" Width="300" Visibility="Collapsed">
+                        <Label Content="Add new patient:" FontSize="14"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="70*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Content="First Name" />
+                            <Label Grid.Row="1" Grid.Column="0" Content="Last Name" />
+                            <Label Grid.Row="2" Grid.Column="0" Content="address" />
+                            <Label Grid.Row="3" Grid.Column="0" Content="email" />
+                            <Label Grid.Row="4" Grid.Column="0" Content="phone" />
+                            <Label Grid.Row="5" Grid.Column="0" Content="doctor" />
+
+
+                            <TextBox Grid.Row="0" Grid.Column="1" Name="tbxFirstName" />
+                            <TextBox Grid.Row="1" Grid.Column="1" Name="tbxLastName" />
+                            <TextBox Grid.Row="2" Grid.Column="1" Name="tbxAddress" />
+                            <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
+                            <TextBox Grid.Row="4" Grid.Column="1" Name="tbxPhone" />
+                            <TextBox Grid.Row="5" Grid.Column="1" Name="tbxDoctor" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>
