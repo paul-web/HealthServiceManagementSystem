@@ -36,11 +36,7 @@ namespace HealthServiceManagementSystem
             stkUserDetails.Visibility = Visibility.Visible;
         }
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            stkUserDetails.Visibility = Visibility.Collapsed;
-        }
-
+  
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             lstUserList.ItemsSource = users;
@@ -54,6 +50,40 @@ namespace HealthServiceManagementSystem
             {
                 logs.Add(log);
             }
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+            user.FirstName = tbxFirstName.Text.Trim();
+            user.LastName = tbxLastName.Text.Trim();
+            user.UserName = tbxUserName.Text.Trim();
+            user.Password = tbxPassword.Text.Trim();
+            user.Email = tbxEmail.Text.Trim();
+            user.LevelID = cbxAccessLevel.SelectedIndex;
+
+            SaveUser(user);
+      
+            
+            tbxFirstName.Text = "";
+            tbxLastName.Text = "";
+            tbxUserName.Text = "";
+            tbxPassword.Text = "";
+            tbxEmail.Text = "";
+
+            MessageBox.Show($"User: {user.UserName} has been added to the database!");
+
+        }
+
+        public void SaveUser(User user)
+        {
+            db.Entry(user).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
