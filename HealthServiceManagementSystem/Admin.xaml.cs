@@ -71,7 +71,7 @@ namespace HealthServiceManagementSystem
             tbxPassword.Text = "";
             tbxEmail.Text = "";
 
-            MessageBox.Show($"User: {user.UserName} has been added to the database!");
+            MessageBox.Show($"User: {user.UserName} has been added to the database!", "HealthServiceManagementSystem", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 

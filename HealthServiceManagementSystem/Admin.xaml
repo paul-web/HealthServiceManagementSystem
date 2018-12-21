@@ -108,7 +108,7 @@
                                     </ListView.ContextMenu>
                                 </ListView>
 
-                                <StackPanel Name="stkUserDetails" Grid.Row="1" HorizontalAlignment="Center" Visibility="Visible">
+                                <StackPanel Name="stkUserDetails" Grid.Row="1" HorizontalAlignment="Center" Visibility="Collapsed">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="16*"/>
