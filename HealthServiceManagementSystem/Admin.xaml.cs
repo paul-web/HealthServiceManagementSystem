@@ -62,23 +62,32 @@ namespace HealthServiceManagementSystem
             user.Email = tbxEmail.Text.Trim();
             user.LevelID = cbxAccessLevel.SelectedIndex;
 
-            SaveUser(user);
-      
-            
+            int saveSuccess = SaveUser(user);
+
+            if (saveSuccess == 1)
+            {
+                MessageBox.Show($"User: {user.UserName} has been added to the database!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error saving user record.", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+
             tbxFirstName.Text = "";
             tbxLastName.Text = "";
             tbxUserName.Text = "";
             tbxPassword.Text = "";
             tbxEmail.Text = "";
 
-            MessageBox.Show($"User: {user.UserName} has been added to the database!", "HealthServiceManagementSystem", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
-        public void SaveUser(User user)
+        public int SaveUser(User user)
         {
             db.Entry(user).State = System.Data.Entity.EntityState.Added;
-            db.SaveChanges();
+            int saveSuccess = db.SaveChanges();
+            return saveSuccess;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

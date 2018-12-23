@@ -23,7 +23,10 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'"); 
+        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
+
+        DBLibrary.Doctor d = new DBLibrary.Doctor();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,9 +45,20 @@ namespace HealthServiceManagementSystem
                     login = true;
                     validatedUser = user;
                     Dashboard dashboard = new Dashboard();
-                    dashboard.user = validatedUser;
+                    dashboard.user = validatedUser;                    
 
                     this.Hide();
+
+                    foreach (var doc in db.Doctors)
+                    {
+                        if (doc.UserID == 3)
+                        {
+                            doc.OnDuty = false;
+                            d = doc;
+                        }
+
+                    }
+
 
                     dashboard.ShowDialog();
                 }
@@ -56,6 +70,10 @@ namespace HealthServiceManagementSystem
                 }
             
             }
+ 
+            db.Entry(d).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+
 
             if (login)
             {
