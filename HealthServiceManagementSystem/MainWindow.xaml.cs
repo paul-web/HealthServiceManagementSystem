@@ -49,17 +49,7 @@ namespace HealthServiceManagementSystem
 
                     this.Hide();
 
-                    foreach (var doc in db.Doctors)
-                    {
-                        if (doc.UserID == 3)
-                        {
-                            doc.OnDuty = false;
-                            d = doc;
-                        }
-
-                    }
-
-
+         
                     dashboard.ShowDialog();
                 }
                 else
@@ -70,9 +60,6 @@ namespace HealthServiceManagementSystem
                 }
             
             }
- 
-            db.Entry(d).State = System.Data.Entity.EntityState.Added;
-            db.SaveChanges();
 
 
             if (login)

@@ -21,13 +21,13 @@ namespace HealthServiceManagementSystem
     /// </summary>
     public partial class Dashboard : Window
     {
+        HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
+
         public User user = new User();
 
         public Dashboard()
         {
             InitializeComponent();
-
-            
 
         }
 
@@ -50,6 +50,50 @@ namespace HealthServiceManagementSystem
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CheckUserAccess();
+
+            SignInDocNurse();
+
+           
+        }
+
+        private void SignInDocNurse()
+        {
+            foreach (var doc in db.Doctors.Where(t => t.UserID == user.UserId))
+            {
+                doc.OnDuty = true;
+            }
+            int saveDoc = db.SaveChanges();
+
+            foreach (var nurse in db.Nurses.Where(t => t.UserID == user.UserId))
+            {
+                nurse.OnDuty = true;
+            }
+            int saveNurse = db.SaveChanges();
+
+            if (saveDoc == 1 || saveNurse == 1)
+            {
+                MessageBox.Show("On Duty updated successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void SignOutDocNurse()
+        {
+            foreach (var doc in db.Doctors.Where(t => t.UserID == user.UserId))
+            {
+                doc.OnDuty = false;
+            }
+            int saveDoc = db.SaveChanges();
+
+            foreach (var nurse in db.Nurses.Where(t => t.UserID == user.UserId))
+            {
+                nurse.OnDuty = false;
+            }
+            int saveNurse = db.SaveChanges();
+
+            if (saveDoc == 1 || saveNurse == 1)
+            {
+                MessageBox.Show("Signed out successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void MenuItem_Checked(object sender, RoutedEventArgs e)
@@ -103,6 +147,13 @@ namespace HealthServiceManagementSystem
             {
                 MessageBox.Show("No entries in back navigation history!");
             }
+        }
+
+        private void mnuSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            SignOutDocNurse();
+            this.Close();
+            Environment.Exit(0);
         }
     }
 }

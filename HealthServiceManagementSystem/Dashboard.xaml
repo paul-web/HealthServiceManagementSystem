@@ -44,6 +44,7 @@
                 <MenuItem Name="mnuPatients" Header="_Patients"  Margin="10,0" Visibility="Collapsed" Click="mnuPatients_Click" />
                 <MenuItem Name="mnuOnDuty" Header="_On Duty"  Margin="10,0" Click="mnuOnDuty_Click"/>
                 <MenuItem Name="mnuApplication" Header="_Application"  Margin="10,0">
+                    <MenuItem Name="mnuSignOut" Header="_Sign Out" Click="mnuSignOut_Click"/>
                     <MenuItem Name="mnuExit" Header="_Exit" Click="mnuExit_Click" />
                 </MenuItem>
                 <MenuItem Header="_Tools"  Margin="10,0">

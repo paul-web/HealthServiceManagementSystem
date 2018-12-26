@@ -25,6 +25,16 @@ namespace HealthServiceManagementSystem
 
         List<User> users = new List<User>();
         List<Log> logs = new List<Log>();
+        User selectedUser = new User();
+
+        enum DBOperation
+        {
+            ADD,
+            MODIFY,
+            DELETE
+        }
+
+        DBOperation dBOperation = new DBOperation();
 
         public Admin()
         {
@@ -33,18 +43,16 @@ namespace HealthServiceManagementSystem
 
         private void submenuAddNewUser_Click(object sender, RoutedEventArgs e)
         {
+            dBOperation = DBOperation.ADD;
             stkUserDetails.Visibility = Visibility.Visible;
         }
 
-  
+
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            lstUserList.ItemsSource = users;
-            foreach (var user in db.Users)
-            {
-                users.Add(user);
-            }
-
+            RefreshUserList();
+            
             lstLogList.ItemsSource = logs;
             foreach (var log in db.Logs)
             {
@@ -54,31 +62,50 @@ namespace HealthServiceManagementSystem
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.FirstName = tbxFirstName.Text.Trim();
-            user.LastName = tbxLastName.Text.Trim();
-            user.UserName = tbxUserName.Text.Trim();
-            user.Password = tbxPassword.Text.Trim();
-            user.Email = tbxEmail.Text.Trim();
-            user.LevelID = cbxAccessLevel.SelectedIndex;
-
-            int saveSuccess = SaveUser(user);
-
-            if (saveSuccess == 1)
+            if (dBOperation == DBOperation.ADD)
             {
-                MessageBox.Show($"User: {user.UserName} has been added to the database!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                User user = new User();
+                user.FirstName = tbxFirstName.Text.Trim();
+                user.LastName = tbxLastName.Text.Trim();
+                user.UserName = tbxUserName.Text.Trim();
+                user.Password = tbxPassword.Text.Trim();
+                user.Email = tbxEmail.Text.Trim();
+                user.LevelID = cbxAccessLevel.SelectedIndex;
+
+                int saveSuccess = SaveUser(user);
+
+                if (saveSuccess == 1)
+                {
+                    MessageBox.Show($"User {user.UserName} has been added to the database!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                    RefreshUserList();
+                    ClearUserDetails();
+                }
+                else
+                {
+                    MessageBox.Show("Error saving user record.", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-            else
+
+            if (dBOperation == DBOperation.MODIFY)
             {
-                MessageBox.Show("Error saving user record.", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Warning);
+                foreach (var user in db.Users.Where(t => t.UserId == selectedUser.UserId))
+                {
+                    user.FirstName = tbxFirstName.Text.Trim();
+                    user.LastName = tbxLastName.Text.Trim();
+                    user.UserName = tbxUserName.Text.Trim();
+                    user.Password = tbxPassword.Text.Trim();
+                    user.Email = tbxEmail.Text.Trim();
+                    user.LevelID = cbxAccessLevel.SelectedIndex;
+                }
+                int save = db.SaveChanges();
+                if (save == 1)
+                {
+                    MessageBox.Show("User modified successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                    RefreshUserList();
+                    ClearUserDetails();
+                    stkUserDetails.Visibility = Visibility.Visible;
+                }
             }
-
-
-            tbxFirstName.Text = "";
-            tbxLastName.Text = "";
-            tbxUserName.Text = "";
-            tbxPassword.Text = "";
-            tbxEmail.Text = "";
 
 
         }
@@ -90,9 +117,86 @@ namespace HealthServiceManagementSystem
             return saveSuccess;
         }
 
+        private void RefreshUserList()
+        {
+            lstUserList.ItemsSource = users;
+            users.Clear();
+
+            foreach (var user in db.Users)
+            {
+                users.Add(user);
+            }
+            lstUserList.Items.Refresh();     
+
+        }
+
+        private void ClearUserDetails()
+        {
+            tbxFirstName.Text = "";
+            tbxLastName.Text = "";
+            tbxUserName.Text = "";
+            tbxPassword.Text = "";
+            tbxEmail.Text = "";
+            cbxAccessLevel.SelectedIndex = 0;
+        }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+
+        private void lstUserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstUserList.SelectedIndex > 0)
+            {
+                selectedUser = users.ElementAt(lstUserList.SelectedIndex);
+              
+                submenuModifySelectedUser.IsEnabled = true;
+                submenuDeleteSelectedUser.IsEnabled = true;
+
+                if (dBOperation == DBOperation.ADD)
+                {
+                    ClearUserDetails();
+                }
+
+                tbxFirstName.Text = selectedUser.FirstName;
+                tbxLastName.Text = selectedUser.LastName;
+                tbxUserName.Text = selectedUser.UserName;
+                tbxPassword.Text = selectedUser.Password;
+                tbxEmail.Text = selectedUser.Email;
+                cbxAccessLevel.SelectedIndex = selectedUser.LevelID;
+                
+                
+            }
+        }
+
+
+        private void submenuModifySelectedUser_Click(object sender, RoutedEventArgs e) 
+        {
+            stkUserDetails.Visibility = Visibility.Visible;
+            dBOperation = DBOperation.MODIFY;
+
+        }
+
+
+        private void submenuDeleteSelectedUser_Click(object sender, RoutedEventArgs e)
+        {
+
+            db.Users.RemoveRange(db.Users.Where(t => t.UserId == selectedUser.UserId));
+            int saveSuccess = db.SaveChanges();
+            if (saveSuccess == 1)
+            {
+                MessageBox.Show("User deleted successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                RefreshUserList();
+                ClearUserDetails();
+                stkUserDetails.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Error deleting user record.", "Delete user from Database", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

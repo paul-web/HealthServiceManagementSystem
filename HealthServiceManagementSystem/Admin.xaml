@@ -39,7 +39,8 @@
                                 <ListView 
                                 Name="lstUserList" 
                                 Grid.Row="0"
-                                Margin="10">
+                                Margin="10"
+                                SelectionChanged="lstUserList_SelectionChanged">
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="first name" Width="150">
@@ -92,12 +93,12 @@
                                                         <Image Source="images/add.png" Width="17" Height="17"/>
                                                     </MenuItem.Icon>
                                                 </MenuItem>
-                                                <MenuItem Header="Modify user" Name="submenuModifySelectedUser" IsEnabled="False">
+                                                <MenuItem Header="Modify user" Name="submenuModifySelectedUser" IsEnabled="False" Click="submenuModifySelectedUser_Click">
                                                     <MenuItem.Icon>
                                                         <Image Source="images/update.png" Width="17" Height="17"/>
                                                     </MenuItem.Icon>
                                                 </MenuItem>
-                                                <MenuItem Header="Delete user" Name="submenuDeleteSelectedNewUser" IsEnabled="False">
+                                                <MenuItem Header="Delete user" Name="submenuDeleteSelectedUser" IsEnabled="False" Click="submenuDeleteSelectedUser_Click">
                                                     <MenuItem.Icon>
                                                         <Image Source="images/delete.png" Width="17" Height="17"/>
                                                     </MenuItem.Icon>
