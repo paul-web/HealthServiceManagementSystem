@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Register" Height="270" MaxHeight="270" Width="600" MaxWidth="600">
+        Title="Register" Height="270" MaxHeight="270" Width="650" MaxWidth="650"
+        Style="{StaticResource WinAll}">
+    
     <Grid Margin="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -25,7 +27,8 @@
             Grid.ColumnSpan="3"
             HorizontalAlignment="Center"
             FontSize="20"
-            Content="Please Enter Login Details"
+            Margin="0,0,0,10"
+            Content="Register a user account"
             />
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0">
@@ -49,5 +52,12 @@
             <Button Name="btnClose" Content="Close" Height="26" Width="130" Margin="10,1" ToolTip="Click this button to Close the Application" Click="btnClose_Click"/>
             <Button Name="btnOk" Content="OK" Height="26" Width="130" Margin="10,1" ToolTip="Click this button to register" Click="btnOk_Click" />
         </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" VerticalAlignment="Center" Margin="0">
+            <TextBlock Text="Please enter your credentials in the fields provided in order to register a user account." TextWrapping="Wrap" Margin="10" Foreground="#00aced"></TextBlock>
+           
+        </StackPanel>
+
+
     </Grid>
 </Window>

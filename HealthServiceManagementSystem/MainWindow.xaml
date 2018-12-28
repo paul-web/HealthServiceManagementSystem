@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="MainWindow" Height="270" MaxHeight="270" Width="600" MaxWidth="600">
+        Title="MainWindow" Height="270" MaxHeight="270" Width="650" MaxWidth="650"
+        Style="{StaticResource WinAll}">
     <Grid Margin="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

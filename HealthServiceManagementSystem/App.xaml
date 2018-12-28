@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:HealthServiceManagementSystem"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-     
+        <Style x:Key="WinAll" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily"
+        Value="Arial" />
+            <Setter Property="FontSize"
+        Value="14" />
+        </Style>
     </Application.Resources>
 </Application>

@@ -8,7 +8,8 @@
         WindowStyle="None"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
-        Title="Dashboard" Height="450" Width="850">
+        Title="Dashboard" Height="450" Width="850"
+        Style="{StaticResource WinAll}">
 
     <Grid>
         <Grid.Background>
