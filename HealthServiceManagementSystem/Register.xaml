@@ -1,0 +1,53 @@
+﻿<Window x:Class="HealthServiceManagementSystem.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthServiceManagementSystem"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="Register" Height="270" MaxHeight="270" Width="600" MaxWidth="600">
+    <Grid Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Content="Please Enter Login Details"
+            />
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0">
+            <Label Content="First Name:" Margin="0" />
+            <Label Content="Last Name:" Margin="0" />
+            <Label Content="User Name:" Margin="0" />
+            <Label Content="Email:" Margin="0" />
+            <Label Content="Password:" Margin="0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="0">
+            <TextBox Name="tbxFirstName" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your first name"/>
+            <TextBox Name="tbxLastName" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your last name"/>
+            <TextBox Name="tbxUserName" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your username"/>
+            <TextBox Name="tbxEmail" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your email address"/>
+            <PasswordBox Name="pbxPassword"  Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0" TabIndex="0" ToolTip="Please enter your password"/>
+            <Label Name="lblErrorMessage" Content="Email or Password is incorrect!" Foreground="#FFF50D0D" BorderBrush="Red" BorderThickness="1" Margin="2" Visibility="Hidden" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btnClose" Content="Close" Height="26" Width="130" Margin="10,1" ToolTip="Click this button to Close the Application" Click="btnClose_Click"/>
+            <Button Name="btnOk" Content="OK" Height="26" Width="130" Margin="10,1" ToolTip="Click this button to register" Click="btnOk_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

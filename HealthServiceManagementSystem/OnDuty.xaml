@@ -30,7 +30,7 @@
                         <ListView Name="lstDoctorOnDutyList" Grid.Row="1">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="first name" Width="200">
+                                    <GridViewColumn Header="first name" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding FirstName}"/>
@@ -38,7 +38,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
 
-                                    <GridViewColumn Header="last name" Width="200">
+                                    <GridViewColumn Header="last name" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LastName}"/>
@@ -47,7 +47,7 @@
                                     </GridViewColumn>
 
 
-                                    <GridViewColumn Header="private phone number" Width="200">
+                                    <GridViewColumn Header="private phone number" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding PhoneNo}"/>
@@ -55,7 +55,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
 
-                                    <GridViewColumn Header="email" Width="200">
+                                    <GridViewColumn Header="email" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Email}"/>
@@ -72,7 +72,7 @@
                         <ListView Name="lstNurseOnDutyList" Grid.Row="3">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="first name" Width="200">
+                                    <GridViewColumn Header="first name" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding FirstName}"/>
@@ -80,7 +80,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
 
-                                    <GridViewColumn Header="last name" Width="200">
+                                    <GridViewColumn Header="last name" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LastName}"/>
@@ -89,7 +89,7 @@
                                     </GridViewColumn>
 
 
-                                    <GridViewColumn Header="private phone number" Width="200">
+                                    <GridViewColumn Header="private phone number" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding PhoneNo}"/>
@@ -97,7 +97,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
 
-                                    <GridViewColumn Header="email" Width="200">
+                                    <GridViewColumn Header="email" Width="190">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Email}"/>

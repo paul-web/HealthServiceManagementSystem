@@ -18,7 +18,8 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
             <Label
             Grid.Row="0"
             Grid.Column="0"
@@ -43,7 +44,18 @@
                 <Button Name="btnOk" Content="OK"  Height="26" Width="130" Margin="10,1" ToolTip="Click this button to enter credentials" Click="btnOk_Click"/>
             </StackPanel>
 
-            <Image
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btnRegister" Height="26" Width="130" Margin="10,1" ToolTip="Click this button to register" Background="Transparent" BorderBrush="Transparent" Click="btnRegister_Click">
+                <Button.Content>
+                    <TextBlock>
+                        <Underline>Register</Underline>
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+
+        <Image
             Grid.Row="1"
             Grid.Column="2"
             Grid.RowSpan="2"

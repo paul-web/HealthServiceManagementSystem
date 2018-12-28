@@ -100,5 +100,13 @@ namespace HealthServiceManagementSystem
             this.Close();
             Environment.Exit(0);
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+
+            this.Close();
+        }
     }
 }

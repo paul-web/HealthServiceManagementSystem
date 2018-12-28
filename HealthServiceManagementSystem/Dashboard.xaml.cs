@@ -70,9 +70,15 @@ namespace HealthServiceManagementSystem
             }
             int saveNurse = db.SaveChanges();
 
-            if (saveDoc == 1 || saveNurse == 1)
+            if (saveDoc == 1)
             {
-                MessageBox.Show("On Duty updated successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Doctor signed in successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+
+            if (saveNurse == 1)
+            {
+                MessageBox.Show("Nurse signed in successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

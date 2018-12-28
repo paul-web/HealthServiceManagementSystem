@@ -17,123 +17,149 @@
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel>
-                <TextBlock Text="Nurses"></TextBlock>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
-                    </Grid.RowDefinitions>
-                    <ListView Name="lstNurseList" Grid.Row="0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Name" Width="150">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
-                                                <TextBlock.Text>
-                                                    <MultiBinding StringFormat="{}{0} - {1}">
-                                                        <Binding Path="FirstName" />
-                                                        <Binding Path="LastName" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
 
-                                <GridViewColumn Header="Address" Width="150">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Address}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                <StackPanel>
+                    <TextBlock Text="Nurses"></TextBlock>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"/>
+                            <RowDefinition Height="50*"/>
+                        </Grid.RowDefinitions>
+                        <ListView Name="lstNurseList" Grid.Row="0" SelectionChanged="lstNurseList_SelectionChanged">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" Width="150">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+                                                    <TextBlock.Text>
+                                                        <MultiBinding StringFormat="{}{0} - {1}">
+                                                            <Binding Path="FirstName" />
+                                                            <Binding Path="LastName" />
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
-                                <GridViewColumn Header="Email" Width="170">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Email}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                    <GridViewColumn Header="address" Width="150">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Address}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
-                                <GridViewColumn Header="Phone" Width="160">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding PhoneNo}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                    <GridViewColumn Header="email" Width="170">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Email}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
-                                <GridViewColumn Header="On Duty" Width="160">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding OnDuty}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                        
-                        <ListView.ContextMenu>
-                            <ContextMenu Name="mnuNurseListOverview" IsEnabled="True">
-                                <ContextMenu.Items>
-                                    <MenuItem Header="Add new nurse" Name="submenuAddNewNurse" IsEnabled="True" Click="submenuAddNewNurse_Click">
-                                        <MenuItem.Icon>
-                                            <Image Source="images/add.png" Width="17" Height="17"/>
-                                        </MenuItem.Icon>
-                                    </MenuItem>
-                                    <MenuItem Header="Modify nurse" Name="submenuModifySelectedNurse" IsEnabled="False">
-                                        <MenuItem.Icon>
-                                            <Image Source="images/update.png" Width="17" Height="17"/>
-                                        </MenuItem.Icon>
-                                    </MenuItem>
-                                    <MenuItem Header="Delete nurse" Name="submenuDeleteSelectedNewNurse" IsEnabled="False">
-                                        <MenuItem.Icon>
-                                            <Image Source="images/delete.png" Width="17" Height="17"/>
-                                        </MenuItem.Icon>
-                                    </MenuItem>
+                                    <GridViewColumn Header="phone" Width="130">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding PhoneNo}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
-                                </ContextMenu.Items>
-                            </ContextMenu>
-                        </ListView.ContextMenu>
-                    </ListView>
-
-                    <StackPanel Name="stkNurseDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0"  Width="300" Visibility="Collapsed">
-                        <Label Content="Add new nurse:" FontSize="14"/>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30*"/>
-                                <ColumnDefinition Width="70*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="0" Grid.Column="0" Content="First Name" />
-                            <Label Grid.Row="1" Grid.Column="0" Content="Last Name" />
-                            <Label Grid.Row="2" Grid.Column="0" Content="address" />
-                            <Label Grid.Row="3" Grid.Column="0" Content="email" />
-                            <Label Grid.Row="4" Grid.Column="0" Content="phone" />
+                                    <GridViewColumn Header="On Duty" Width="85">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding OnDuty}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
 
-                            <TextBox Grid.Row="0" Grid.Column="1" Name="tbxFirstName" />
-                            <TextBox Grid.Row="1" Grid.Column="1" Name="tbxLastName" />
-                            <TextBox Grid.Row="2" Grid.Column="1" Name="tbxAddress" />
-                            <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
-                            <TextBox Grid.Row="4" Grid.Column="1" Name="tbxPhone" />
-                        </Grid>
-                    </StackPanel>
-                </Grid>
+                                    <GridViewColumn Header="User ID" Width="85">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserID}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+
+                            <ListView.ContextMenu>
+                                <ContextMenu Name="mnuNurseListOverview" IsEnabled="True">
+                                    <ContextMenu.Items>
+                                        <MenuItem Header="Add new nurse" Name="submenuAddNewNurse" IsEnabled="True" Click="submenuAddNewNurse_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/add.png" Width="17" Height="17"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Modify nurse" Name="submenuModifySelectedNurse" IsEnabled="False" Click="submenuModifySelectedNurse_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/update.png" Width="17" Height="17"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Delete nurse" Name="submenuDeleteSelectedNurse" IsEnabled="False" Click="submenuDeleteSelectedNurse_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="images/delete.png" Width="17" Height="17"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+
+                                    </ContextMenu.Items>
+                                </ContextMenu>
+                            </ListView.ContextMenu>
+                        </ListView>
+
+                        <StackPanel Name="stkNurseDetails" Grid.Row="1" HorizontalAlignment="Center" Margin="0,50,0,0"  Width="300" Visibility="Collapsed">
+                            <Label Content="Add new nurse:" FontSize="14"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
+                                    <RowDefinition Height="14*"/>
 
 
-            </StackPanel>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45*"/>
+                                    <ColumnDefinition Width="70*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="First Name" />
+                                <Label Grid.Row="1" Grid.Column="0" Content="Last Name" />
+                                <Label Grid.Row="2" Grid.Column="0" Content="address" />
+                                <Label Grid.Row="3" Grid.Column="0" Content="email" />
+                                <Label Grid.Row="4" Grid.Column="0" Content="phone" />
+                                <Label Grid.Row="5" Grid.Column="0" Content="onDuty" />
+                                <Label Grid.Row="6" Grid.Column="0" Content="User ID" />
+
+
+
+                                <TextBox Grid.Row="0" Grid.Column="1" Name="tbxFirstName" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Name="tbxLastName" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Name="tbxAddress" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Name="tbxPhone" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Name="tbxOnDuty" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Name="tbxUserID" />
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="0" Width="auto">
+                                    <Button Name="btnOk" Content="Ok" Width="50" Height="26" Click="btnOk_Click" Margin="5" Background="#00aced"/>
+                                    <Button Name="btnCancel" Content="Cancel" Width="50" Height="26" Click="btnCancel_Click" Margin="5" Background="#00aced"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Border>
 </Page>
