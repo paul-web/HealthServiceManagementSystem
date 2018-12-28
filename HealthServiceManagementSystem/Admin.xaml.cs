@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HealthServiceManagementSystem
-{
+{ 
     /// <summary>
     /// Interaction logic for Admin.xaml
     /// </summary>
@@ -124,7 +124,10 @@ namespace HealthServiceManagementSystem
 
             foreach (var user in db.Users)
             {
-                users.Add(user);
+                if (user.UserId != 1010)
+                {
+                    users.Add(user);
+                }
             }
             lstUserList.Items.Refresh();     
 

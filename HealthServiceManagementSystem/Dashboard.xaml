@@ -64,6 +64,16 @@
                             <Image Source="images/user_groups.png" Width="17" Height="17"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem 
+                        Name="mnuAnalytics"
+                        Header="_Application Analytics" 
+                        IsCheckable="True" 
+                        IsChecked="False"
+                        Checked="mnuAnalytics_Checked">
+                        <MenuItem.Icon>
+                            <Image Source="images/user_groups.png" Width="17" Height="17"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
             <Button Name="backButton" Width="40" HorizontalAlignment="Left" Margin="5,15" Click="backButton_Click" Background="Transparent" BorderThickness="0">

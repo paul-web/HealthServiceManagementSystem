@@ -161,5 +161,10 @@ namespace HealthServiceManagementSystem
             this.Close();
             Environment.Exit(0);
         }
+
+        private void mnuAnalytics_Checked(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new Analytics());
+        }
     }
 }

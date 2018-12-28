@@ -1,0 +1,34 @@
+﻿<Page x:Class="HealthServiceManagementSystem.Analytics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthServiceManagementSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="Analytics">
+        <Grid VerticalAlignment="Top" Height="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Application Analytics" Grid.Row="0" Grid.Column="0" FontSize="19" HorizontalAlignment="Left" Grid.ColumnSpan="3" Margin="0,0,0,20" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Total Number of Doctors on Duty:" Height="25"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Total Number of Nurses on Duty:" Height="25"></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Total Number of Users:" Height="25"></TextBlock>
+
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TotalDoctorsOnDuty}" Height="25"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TotalNursesOnDuty}" Height="25"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding TotalUsers}" Height="25"/>
+    </Grid>
+
+</Page>
