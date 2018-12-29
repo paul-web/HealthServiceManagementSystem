@@ -49,7 +49,7 @@
                     <MenuItem Name="mnuExit" Header="_Exit" Click="mnuExit_Click" />
                 </MenuItem>
                 <MenuItem Header="_Tools"  Margin="10,0">
-                    <MenuItem Header="_Manage users">
+                    <MenuItem Name="manageUsers" Header="_Manage users" Click="manageUsers_Click">
                         <MenuItem.Icon>
                             <Image Source="images/users.png" Width="17" Height="17"/>
                         </MenuItem.Icon>

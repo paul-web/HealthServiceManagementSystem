@@ -172,5 +172,11 @@ namespace HealthServiceManagementSystem
         {
             mainFrame.Navigate(new Analytics());
         }
+
+        // navigate to on users view
+        private void manageUsers_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new Admin());
+        }
     }
 }

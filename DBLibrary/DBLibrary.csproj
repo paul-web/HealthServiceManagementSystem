@@ -74,6 +74,9 @@
     <Compile Include="Log.cs">
       <DependentUpon>HealthClinicModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MSreplication_options.cs">
+      <DependentUpon>HealthClinicModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Nurse.cs">
       <DependentUpon>HealthClinicModel.tt</DependentUpon>
     </Compile>
@@ -81,6 +84,18 @@
       <DependentUpon>HealthClinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="spt_fallback_db.cs">
+      <DependentUpon>HealthClinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spt_fallback_dev.cs">
+      <DependentUpon>HealthClinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spt_fallback_usg.cs">
+      <DependentUpon>HealthClinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spt_monitor.cs">
+      <DependentUpon>HealthClinicModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>HealthClinicModel.tt</DependentUpon>
     </Compile>
