@@ -29,27 +29,53 @@ namespace HealthServiceManagementSystem
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
+            int saveSuccess = 0;
+            string firstName = tbxFirstName.Text.Trim();
+            string lastName = tbxLastName.Text.Trim();
+            string userName = tbxUserName.Text.Trim();
+            string password = pbxPassword.Password;
+            string email = tbxEmail.Text.Trim();
+            int levelID = 3;
+
             User user = new User();
-            user.FirstName = tbxFirstName.Text.Trim();
-            user.LastName = tbxLastName.Text.Trim();
-            user.UserName = tbxUserName.Text.Trim();
-            user.Password = pbxPassword.Password;
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.UserName = userName;
+            user.Password = password;
             user.Email = tbxEmail.Text.Trim();
-            user.LevelID = 3; // all new users get default 3rd level access until administrator approval
+            user.LevelID = levelID; // all new users get default 3rd level access until administrator approval
 
-            int saveSuccess = SaveUser(user);
-
-            if (saveSuccess == 1)
+            // error check on textboxes
+            if (firstName != "" && lastName != "" && userName != "" && password != "" && email != "")
             {
-                MessageBox.Show("You have successfully registered!", "User registration", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                // error check on password length
+                if (password.Length >= 5)
+                {
+                    saveSuccess = SaveUser(user);
+                    if (saveSuccess == 1)
+                    {
+                        MessageBox.Show("You have successfully registered!", "User registration", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error registering a user account!", "User registration", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Passwords must be at least 5 characters in length.", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
             }
+            
             else
             {
-                MessageBox.Show("Error registering a user account!", "User registration", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Fields can not be blank! \nYou must enter a value in each field.", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
         }
 
         public int SaveUser(User user)
@@ -61,7 +87,8 @@ namespace HealthServiceManagementSystem
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
+            Environment.Exit(0);
         }
     }
 }

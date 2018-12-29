@@ -22,7 +22,7 @@ namespace HealthServiceManagementSystem
     public partial class Dashboard : Window
     {
         HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
-
+        // declare and instantiate new user variable
         public User user = new User();
 
         public Dashboard()
@@ -31,16 +31,17 @@ namespace HealthServiceManagementSystem
 
         }
 
-
+        // method to check user access and set views accordingly
         private void CheckUserAccess()
         {
+            // level 1 adds patients and admin panel to view
             if (user.LevelID == 1)
             {
                 mnuPatients.Visibility = Visibility.Visible;
                 mnuAdmin.Visibility = Visibility.Visible;
               
             }
-
+            // level 1 adds patients to view
             if (user.LevelID == 2)
             {
                 mnuPatients.Visibility = Visibility.Visible;
@@ -49,27 +50,29 @@ namespace HealthServiceManagementSystem
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CheckUserAccess();
+            CheckUserAccess(); // check access on window loaded
 
-            SignInDocNurse();
+            SignInDocNurse(); // signin the doctor/nurse if they have 2nd level access
 
            
         }
 
+        // when signing in to the application this method checks if user ID matches any user ID foreign key in doctor and nurses tables. If a match is found, the doctor/nurse is signed in as On Duty to the database.
         private void SignInDocNurse()
         {
             foreach (var doc in db.Doctors.Where(t => t.UserID == user.UserId))
             {
-                doc.OnDuty = true;
+                doc.OnDuty = true; // sign in matching doc
             }
             int saveDoc = db.SaveChanges();
 
             foreach (var nurse in db.Nurses.Where(t => t.UserID == user.UserId))
             {
-                nurse.OnDuty = true;
+                nurse.OnDuty = true; // sign in matching nurse
             }
             int saveNurse = db.SaveChanges();
 
+            // display success message according to nurse or doctor sign in
             if (saveDoc == 1)
             {
                 MessageBox.Show("Doctor signed in successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -82,6 +85,7 @@ namespace HealthServiceManagementSystem
             }
         }
 
+        // method to sign out a doctor/nurse from the appllcation and from the clinic
         private void SignOutDocNurse()
         {
             foreach (var doc in db.Doctors.Where(t => t.UserID == user.UserId))
@@ -98,51 +102,51 @@ namespace HealthServiceManagementSystem
 
             if (saveDoc == 1 || saveNurse == 1)
             {
-                MessageBox.Show("Signed out successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Signed out successfully!", "Sign out", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
-        private void MenuItem_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        // method to display groups on menu item click 
         private void mnuShowGroups_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Message box has been clicked!");
         }
 
+        // navigate to admin page
         public void mnuAdmin_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Admin());
         }
-
+        // navigate to doctor page
         public void mnuDoctors_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Doctor());
         }
 
+        // navigate to nurse page
         public void mnuNurses_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Nurse());
         }
 
+        // navigate to patient page
         public void mnuPatients_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Patient());
         }
-
+        // navigate to on duty page
         public void mnuOnDuty_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new OnDuty());
         }
-
+        // exit application on click of exit button 
         private void mnuExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             Environment.Exit(0);
         }
 
+        // navigate back through pages on back button click
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.mainFrame.CanGoBack)
@@ -155,6 +159,7 @@ namespace HealthServiceManagementSystem
             }
         }
 
+        // sign out doctor/nurse from DB on duty setting and close application
         private void mnuSignOut_Click(object sender, RoutedEventArgs e)
         {
             SignOutDocNurse();
@@ -162,6 +167,7 @@ namespace HealthServiceManagementSystem
             Environment.Exit(0);
         }
 
+        // navigate to on analytics page
         private void mnuAnalytics_Checked(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Analytics());

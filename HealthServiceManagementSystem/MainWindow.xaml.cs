@@ -38,27 +38,38 @@ namespace HealthServiceManagementSystem
             string currentEmail = tbxEmail.Text;
             string currentPassword = pbxPassword.Password;
 
-            foreach (var user in db.Users)
+            // catch invalid sign in attempts
+            if (currentEmail == "" || currentPassword == "")
             {
-                if (user.Email == currentEmail && user.Password == currentPassword)
-                {
-                    login = true;
-                    validatedUser = user;
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.user = validatedUser;                    
+                MessageBox.Show("Fields can not be blank! \nYou must enter a value in each field", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            // if log in fields are valid run check on DB for valid user 
+            else
+            {
 
-                    this.Hide();
-
-         
-                    dashboard.ShowDialog();
-                }
-                else
+                foreach (var user in db.Users)
                 {
-                    tbxEmail.Text = String.Empty;
-                    pbxPassword.Password = "";
-                    lblErrorMessage.Visibility = Visibility.Visible;
+
+
+                    if (user.Email == currentEmail && user.Password == currentPassword)
+                    {
+                        login = true;
+                        validatedUser = user;
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.user = validatedUser;
+
+                        this.Hide();
+
+                        dashboard.ShowDialog();
+                    }
+                    else
+                    {
+                        tbxEmail.Text = String.Empty;
+                        pbxPassword.Password = "";
+                        lblErrorMessage.Visibility = Visibility.Visible;
+                    }
+
                 }
-            
             }
 
 
