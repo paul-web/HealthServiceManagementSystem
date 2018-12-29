@@ -86,14 +86,13 @@ namespace HealthServiceManagementSystem
 
         private void submenuDeleteSelectedNurse_Click(object sender, RoutedEventArgs e)
         {
-            db.Doctors.RemoveRange(db.Doctors.Where(t => t.UserID == selectedNurse.UserID));
+            db.Nurses.RemoveRange(db.Nurses.Where(t => t.UserID == selectedNurse.UserID));
             int saveSuccess = db.SaveChanges();
             if (saveSuccess == 1)
             {
                 MessageBox.Show("Nurse deleted successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
                 RefreshNurseList();
                 ClearNurseDetails();
-                stkNurseDetails.Visibility = Visibility.Visible;
             }
             else
             {
@@ -190,7 +189,7 @@ namespace HealthServiceManagementSystem
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            stkNurseDetails.Visibility = Visibility.Collapsed;
         }
     }
 }
