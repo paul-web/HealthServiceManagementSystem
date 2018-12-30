@@ -24,6 +24,9 @@ namespace HealthServiceManagementSystem
         HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
         // declare and instantiate new user variable
         public User user = new User();
+        Doctor doctor = new Doctor();
+        Nurse nurseAccess = new Nurse();
+
 
         public Dashboard()
         {
@@ -39,13 +42,16 @@ namespace HealthServiceManagementSystem
             {
                 mnuPatients.Visibility = Visibility.Visible;
                 mnuAdmin.Visibility = Visibility.Visible;
-              
+                doctor.mnuDoctorListOverview.IsEnabled = true;
+                nurseAccess.mnuNurseListOverview.IsEnabled = true;
+
             }
             // level 1 adds patients to view
             if (user.LevelID == 2)
             {
                 mnuPatients.Visibility = Visibility.Visible;
             }
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -120,13 +126,13 @@ namespace HealthServiceManagementSystem
         // navigate to doctor page
         public void mnuDoctors_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Doctor());
+            mainFrame.Navigate(doctor);
         }
 
         // navigate to nurse page
         public void mnuNurses_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Nurse());
+            mainFrame.Navigate(nurseAccess);
         }
 
         // navigate to patient page

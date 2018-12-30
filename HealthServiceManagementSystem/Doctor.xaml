@@ -86,7 +86,7 @@
                                 </GridView>
                             </ListView.View>
                             <ListView.ContextMenu>
-                                <ContextMenu Name="mnuDoctorListOverview" IsEnabled="True">
+                                <ContextMenu Name="mnuDoctorListOverview" IsEnabled="False">
                                     <ContextMenu.Items>
                                         <MenuItem Header="Add new docter" Name="submenuAddNewDoctor" IsEnabled="True" Click="submenuAddNewDoctor_Click">
                                             <MenuItem.Icon>

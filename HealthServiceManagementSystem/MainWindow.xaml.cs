@@ -39,9 +39,13 @@ namespace HealthServiceManagementSystem
             string currentPassword = pbxPassword.Password;
 
             // catch invalid sign in attempts
-            if (currentEmail == "" || currentPassword == "")
+            if (currentEmail.Length == 0 || currentPassword.Length == 0)
             {
                 MessageBox.Show("Fields can not be blank! \nYou must enter a value in each field", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (currentPassword.Length < 5)
+            {
+                MessageBox.Show("Passwords must have at least 5 characters!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             // if log in fields are valid run check on DB for valid user 
             else
@@ -55,12 +59,7 @@ namespace HealthServiceManagementSystem
                     {
                         login = true;
                         validatedUser = user;
-                        Dashboard dashboard = new Dashboard();
-                        dashboard.user = validatedUser;
-
-                        this.Hide();
-
-                        dashboard.ShowDialog();
+                       
                     }
                     else
                     {
@@ -76,6 +75,13 @@ namespace HealthServiceManagementSystem
             if (login)
             {
                 CreateLogEntry("Login", "Logged in.", Convert.ToInt16(validatedUser.UserId), validatedUser.Email);
+                Dashboard dashboard = new Dashboard();
+
+                dashboard.user = validatedUser;
+
+                this.Hide();
+
+                dashboard.ShowDialog();
 
             }
             else
@@ -83,6 +89,8 @@ namespace HealthServiceManagementSystem
                 // database null user has ID 1010 for logging failed user login attempts
                 CreateLogEntry("Failed Login", "Didnt login.", 1010, currentEmail);
             }
+
+  
         }
 
         private void CreateLogEntry(string category, string description, int userID, string email)

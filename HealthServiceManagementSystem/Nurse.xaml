@@ -88,7 +88,7 @@
                             </ListView.View>
 
                             <ListView.ContextMenu>
-                                <ContextMenu Name="mnuNurseListOverview" IsEnabled="True">
+                                <ContextMenu Name="mnuNurseListOverview" IsEnabled="False">
                                     <ContextMenu.Items>
                                         <MenuItem Header="Add new nurse" Name="submenuAddNewNurse" IsEnabled="True" Click="submenuAddNewNurse_Click">
                                             <MenuItem.Icon>
