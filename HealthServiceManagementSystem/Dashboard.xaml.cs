@@ -24,8 +24,9 @@ namespace HealthServiceManagementSystem
         HealthServiceEntities db = new HealthServiceEntities("metadata=res://*/HealthClinicModel.csdl|res://*/HealthClinicModel.ssdl|res://*/HealthClinicModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.20.10.12;initial catalog=HealthSevice;persist security info=True;user id=paul;password=Venus1234;MultipleActiveResultSets=True;App=EntityFramework'");
         // declare and instantiate new user variable
         public User user = new User();
-        Doctor doctor = new Doctor();
-        Nurse nurseAccess = new Nurse();
+        Doctor doctor = new Doctor(); // doctor variable to set permissions
+        Nurse nurseAccess = new Nurse(); // nurse variable to set permissions
+        Admin admin = new Admin(); // admin variable to set permissions
 
 
         public Dashboard()
@@ -44,6 +45,7 @@ namespace HealthServiceManagementSystem
                 mnuAdmin.Visibility = Visibility.Visible;
                 doctor.mnuDoctorListOverview.IsEnabled = true;
                 nurseAccess.mnuNurseListOverview.IsEnabled = true;
+                admin.mnuUserListOverview.IsEnabled = true;
 
             }
             // level 1 adds patients to view
@@ -84,7 +86,6 @@ namespace HealthServiceManagementSystem
                 MessageBox.Show("Doctor signed in successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-
             if (saveNurse == 1)
             {
                 MessageBox.Show("Nurse signed in successfully!", "Save to Database", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -96,18 +97,19 @@ namespace HealthServiceManagementSystem
         {
             foreach (var doc in db.Doctors.Where(t => t.UserID == user.UserId))
             {
-                doc.OnDuty = false;
+                doc.OnDuty = false; // set on duty bool to false if IDs match
             }
             int saveDoc = db.SaveChanges();
 
             foreach (var nurse in db.Nurses.Where(t => t.UserID == user.UserId))
             {
-                nurse.OnDuty = false;
+                nurse.OnDuty = false; // set on duty bool to false if IDs match
             }
             int saveNurse = db.SaveChanges();
 
             if (saveDoc == 1 || saveNurse == 1)
             {
+                // print successful sign out message
                 MessageBox.Show("Signed out successfully!", "Sign out", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
@@ -121,7 +123,7 @@ namespace HealthServiceManagementSystem
         // navigate to admin page
         public void mnuAdmin_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Admin());
+            mainFrame.Navigate(admin);
         }
         // navigate to doctor page
         public void mnuDoctors_Click(object sender, RoutedEventArgs e)
@@ -183,6 +185,33 @@ namespace HealthServiceManagementSystem
         private void manageUsers_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Admin());
+        }
+
+        // method for searching doctor listings
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            // store user search text
+            string userSearch = tbxSearchItem.Text.Trim();
+
+            // check to see that search text has the minimum of 5 characters
+            if (userSearch.Length <= 2)
+            {
+                // print error message
+                MessageBox.Show("Search must have at least 3 characters!", "Search doctors", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                // loop doctors
+                foreach (var docSearch in db.Doctors)
+                {
+                    // if the search text is greater than 2 chars and is contained in the docs last name print all results to screen.
+                    if (docSearch.LastName.Contains(userSearch))
+                    {
+                        MessageBox.Show("Search results:\nFound Doctor: " + docSearch.FirstName + " " + docSearch.LastName + "\nPhone: " + docSearch.PhoneNo + "\nAddress: " + docSearch.Address + "\nOn Duty = " + (docSearch.OnDuty ? "Yes" : "No"), "Search doctors", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+            }
+            
         }
     }
 }
