@@ -46,6 +46,7 @@ namespace HealthServiceManagementSystem
                 doctor.mnuDoctorListOverview.IsEnabled = true;
                 nurseAccess.mnuNurseListOverview.IsEnabled = true;
                 admin.mnuUserListOverview.IsEnabled = true;
+                mnuTools.Visibility = Visibility.Visible;
 
             }
             // level 1 adds patients to view
@@ -117,7 +118,7 @@ namespace HealthServiceManagementSystem
         // method to display groups on menu item click 
         private void mnuShowGroups_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Message box has been clicked!");
+            mainFrame.Navigate(new UserGroups());
         }
 
         // navigate to admin page
