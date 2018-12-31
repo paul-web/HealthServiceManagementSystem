@@ -10,19 +10,29 @@ namespace DBLibrary.Tests
 {
     public class LoginProcessTests
     {
-        [Fact]
+        // declare and instantiate class to test
+        LoginProcess loginProcess = new LoginProcess();
+
+        [Theory]
+        [InlineData ("validmail@clinic.com", "password", true)] // test valid input
+        [InlineData("mail@clinic.com", "gt5ooj", true)] // test valid input
+        [InlineData("", "", false)] // test empty input textboxes
+        [InlineData("validmail@clinic.com", "pa", false)] // test invaliud password length
+        [InlineData("validmail@clinic.com", "22ff", false)] // test invalid password length
+        [InlineData("validmail@clinic.com", "", false)] // test invalid empty password field
+        [InlineData("invalidmailformat.com", "password", false)] // test invalid email format (no @ symbol)
+        [InlineData("invalidmail@formatcom", "password", false)] // test invalid email format (no .)
+        [InlineData("validmail@mail.com", "apasswordtestthatisgreaterthanthirtycharactersinlength", false)] // test invalid password length > 30 chars
+
+
         // test accepted user credentials
-        public void ValidateUserInput_StringsShouldVerify()
+        public void ValidateUserInput_StringsShouldVerify(string email, string password, bool expected)
         {
             // Arrange 
-            // declare and instantiate class to test
-            LoginProcess loginProcess = new LoginProcess();
-            // set boolean of expected result
-            bool expected = true;
 
             // Act
             // set boolean for the actual result
-            bool actual = loginProcess.valdateEmailPasswordInput("testmail@clinic.com", "passwordTest");
+            bool actual = loginProcess.valdateEmailPasswordInput(email,password);
 
             // Assert
             // compare results
@@ -30,11 +40,28 @@ namespace DBLibrary.Tests
         }
 
         [Fact]
+        // test empty user input
+        public void ValidateUserInput_EmptyStringsShouldFail()
+        {
+            // Arrange 
+            // set boolean of expected result
+            bool expected = false;
+
+            // Act
+            // set boolean for the actual result
+            bool actual = loginProcess.valdateEmailPasswordInput("", "");
+
+            // Assert
+            // compare results
+            Assert.Equal(expected, actual);
+        }
+
+
+        [Fact]
         // test non accepted email credentials
         public void ValidateUserInput_EmailShouldFail()
         {
             // Arrange 
-            LoginProcess loginProcess = new LoginProcess();
             bool expected = false;
 
             // Act
@@ -51,7 +78,6 @@ namespace DBLibrary.Tests
         public void ValidateUserInput_PasswordShouldFail()
         {
             // Arrange 
-            LoginProcess loginProcess = new LoginProcess();
             bool expected = false;
 
             // Act

@@ -23,6 +23,11 @@ namespace DBLibrary
             {
                 MessageBox.Show("Passwords must have at least 5 characters!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            // catch invalid password length and print error message
+            else if (password.Length > 30)
+            {
+                MessageBox.Show("Passwords cannot be greater than 30 characters in length!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             /* (since my DB was already uploaded to blackboard I will not implement this password check)
             // check that password contains at least one number
             else if (!password.Any(x => Char.IsDigit(x)))
