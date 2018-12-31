@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Text.RegularExpressions;
+using System.Data.Entity.Core;
 
 namespace HealthServiceManagementSystem
 {
@@ -74,26 +75,35 @@ namespace HealthServiceManagementSystem
             // if email and password are valid run DB check
             if (isValidInput)
             {
-
-                foreach (var user in db.Users)
+                try
                 {
-
-                    if (user.Email == email && user.Password == password)
+                    foreach (var user in db.Users)
                     {
-                        // if data matches DB user set login bool and set validatedUser
-                        validated = true;
-                        validatedUser = user;
+
+                        if (user.Email == email && user.Password == password)
+                        {
+                            // if data matches DB user set login bool and set validatedUser
+                            validated = true;
+                            validatedUser = user;
+
+                        }
+                        else
+                        {
+                            // reset textboxes and show errormessage label
+                            tbxEmail.Text = String.Empty;
+                            pbxPassword.Password = "";
+                            lblErrorMessage.Visibility = Visibility.Visible;
+                        }
 
                     }
-                    else
-                    {
-                        // reset textboxes and show errormessage label
-                        tbxEmail.Text = String.Empty;
-                        pbxPassword.Password = "";
-                        lblErrorMessage.Visibility = Visibility.Visible;
-                    }
-
                 }
+                catch (EntityException ex)
+                {
+                    MessageBox.Show("There was a pr0blem connecting to the SQL Server\nThe application will now close.\n"+ex.Message);
+                    this.Close();
+                    Environment.Exit(0);
+                }
+                
             }
             
             return validated;

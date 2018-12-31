@@ -22,7 +22,13 @@ namespace DBLibrary.Tests
         [InlineData("validmail@clinic.com", "", false)] // test invalid empty password field
         [InlineData("invalidmailformat.com", "password", false)] // test invalid email format (no @ symbol)
         [InlineData("invalidmail@formatcom", "password", false)] // test invalid email format (no .)
+        [InlineData("validmail@format.com", "1password", false)] // test invalid email format beginning with number
+        [InlineData("validmail@format.com", "77password", false)] // test invalid email format beginning with number
+        [InlineData("validmail@format.com", "9092pass", false)] // test invalid email format beginning with number
         [InlineData("validmail@mail.com", "apasswordtestthatisgreaterthanthirtycharactersinlength", false)] // test invalid password length > 30 chars
+        [InlineData("validmail@mail.com", "anotherpasswordtestthatisgreaterthanthirtycharactersinlength", false)] // test invalid password length > 30 chars
+
+
 
 
         // test accepted user credentials

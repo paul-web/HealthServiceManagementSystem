@@ -28,6 +28,11 @@ namespace DBLibrary
             {
                 MessageBox.Show("Passwords cannot be greater than 30 characters in length!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            // check that password does not begin with a number and print error message
+            else if (password[0] >= '0' && password[0] <= '9')
+            {
+                MessageBox.Show("Passwords cannot begin with a number!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             /* (since my DB was already uploaded to blackboard I will not implement this password check)
             // check that password contains at least one number
             else if (!password.Any(x => Char.IsDigit(x)))
