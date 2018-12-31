@@ -9,12 +9,10 @@ namespace DBLibrary
 {
     public class LoginProcess
     {
-        // method definition for validating user
-        public bool ValidateUser(string email, string password)
+        // method for validating email, password input
+        public bool valdateEmailPasswordInput(string email, string password)
         {
-
-            bool validated = false;
-
+            bool isValidEmailPassword = false;
             // catch invalid sign in attempts and print error message
             if (email.Length == 0 || password.Length == 0)
             {
@@ -40,9 +38,9 @@ namespace DBLibrary
             // if log in fields are valid run check on DB for valid user 
             else
             {
-                validated = true;
+                isValidEmailPassword = true;
             }
-            return validated;
+            return isValidEmailPassword;
         }
     }
 }

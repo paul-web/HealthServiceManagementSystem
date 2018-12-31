@@ -66,34 +66,15 @@ namespace HealthServiceManagementSystem
         // method definition for validating user
         private bool ValidateUser(string email, string password)
         {
-
             bool validated = false;
-            
-            // catch invalid sign in attempts and print error message
-            if (email.Length == 0 || password.Length == 0)
+
+            // seperate class method for email, password validation
+            LoginProcess loginProcess = new LoginProcess();
+            bool isValidInput = loginProcess.valdateEmailPasswordInput(email, password);
+            // if email and password are valid run DB check
+            if (isValidInput)
             {
-                MessageBox.Show("Fields can not be blank! \nYou must enter a value in each field", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            // catch invalid password length and print error message
-            else if (password.Length < 5)
-            {
-                MessageBox.Show("Passwords must have at least 5 characters!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            /* (since my DB was already uploaded to blackboard I will not implement this password check)
-            // check that password contains at least one number
-            else if (!password.Any(x => Char.IsDigit(x)))
-            {
-                MessageBox.Show("Passwords must have at least 1 number!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            */
-            // catch invalid email format and print error message
-            else if (!email.Contains('@') || !email.Contains('.'))
-            {
-                MessageBox.Show("Please use an accepted email format!", "Error signing in", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            // if log in fields are valid run check on DB for valid user 
-            else
-            {
+
                 foreach (var user in db.Users)
                 {
 
@@ -114,8 +95,10 @@ namespace HealthServiceManagementSystem
 
                 }
             }
+            
             return validated;
         }
+
 
         // method for creating logs
         private void CreateLogEntry(string category, string description, int userID, string email)
