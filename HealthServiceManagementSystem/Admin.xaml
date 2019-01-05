@@ -79,7 +79,7 @@
                                             <GridViewColumn Header="access level" Width="150">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                                                        <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LevelID}"/>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>

@@ -81,6 +81,8 @@ namespace HealthServiceManagementSystem
 
         private void lstPatientList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ClearPatientDetails();
+
             if (lstPatientList.SelectedIndex > 0)
             {
                 selectedPatient = patients.ElementAt(lstPatientList.SelectedIndex);
@@ -130,6 +132,8 @@ namespace HealthServiceManagementSystem
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
+            RefreshPatientList();
+
             if (dBOperation == DBOperation.ADD)
             {
                 DBLibrary.Patient patient = new DBLibrary.Patient();

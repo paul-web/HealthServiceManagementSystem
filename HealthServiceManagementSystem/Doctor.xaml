@@ -76,10 +76,10 @@
                                     </GridViewColumn>
 
 
-                                    <GridViewColumn Header="User ID" Width="85">
+                                    <GridViewColumn Header="Doctor ID" Width="85">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserID}"/>
+                                                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding DoctorID}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -145,7 +145,7 @@
                                 <TextBox Grid.Row="3" Grid.Column="1" Name="tbxEmail" />
                                 <TextBox Grid.Row="4" Grid.Column="1" Name="tbxPhone" />
                                 <TextBox Grid.Row="5" Grid.Column="1" Name="tbxOnDuty" />
-                                <TextBox Grid.Row="6" Grid.Column="1" Name="tbxUserID" />
+                                <TextBox Grid.Row="6" Grid.Column="1" Name="tbxDoctorID" />
 
                                 <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="0" Width="auto">
                                     <Button Name="btnOk" Content="Ok" Width="50" Height="26" Click="btnOk_Click" Margin="5" Background="#00aced"/>

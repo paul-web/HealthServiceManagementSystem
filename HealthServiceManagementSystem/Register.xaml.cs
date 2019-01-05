@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace HealthServiceManagementSystem
-{
+    {
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>

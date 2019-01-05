@@ -86,6 +86,9 @@ namespace HealthServiceManagementSystem
 
         private void submenuDeleteSelectedNurse_Click(object sender, RoutedEventArgs e)
         {
+            ClearNurseDetails();
+
+
             db.Nurses.RemoveRange(db.Nurses.Where(t => t.UserID == selectedNurse.UserID));
             int saveSuccess = db.SaveChanges();
             if (saveSuccess == 1)

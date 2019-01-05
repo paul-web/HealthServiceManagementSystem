@@ -80,7 +80,7 @@ namespace HealthServiceManagementSystem
             tbxEmail.Text = "";
             tbxPhone.Text = "";
             tbxOnDuty.Text = "";
-            tbxUserID.Text = "";
+            tbxDoctorID.Text = "";
         }
         // method to run when doctor listing is selected
         private void lstDoctorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -107,7 +107,7 @@ namespace HealthServiceManagementSystem
                 tbxEmail.Text = selectedDoctor.Email;
                 tbxPhone.Text = selectedDoctor.PhoneNo.ToString();
                 tbxOnDuty.Text = selectedDoctor.OnDuty.ToString();
-                tbxUserID.Text = selectedDoctor.UserID.ToString();
+                tbxDoctorID.Text = selectedDoctor.DoctorID.ToString();
 
 
 
@@ -153,7 +153,7 @@ namespace HealthServiceManagementSystem
                 doctor.Email = tbxEmail.Text.Trim();
                 doctor.PhoneNo = Int32.Parse(tbxPhone.Text.Trim());
                 doctor.OnDuty = Convert.ToBoolean(tbxOnDuty.Text.Trim());
-                doctor.UserID = Int32.Parse(tbxUserID.Text.Trim());
+                doctor.UserID = Int32.Parse(tbxDoctorID.Text.Trim());
                 // save success as int
                 int saveSuccess = SaveDoctor(doctor);
 
@@ -182,7 +182,7 @@ namespace HealthServiceManagementSystem
                     doctor.Email = tbxEmail.Text.Trim();
                     doctor.PhoneNo = Int32.Parse(tbxPhone.Text.Trim());
                     doctor.OnDuty = Convert.ToBoolean(tbxOnDuty.Text.Trim());
-                    doctor.UserID = Int32.Parse(tbxUserID.Text.Trim());
+                    doctor.UserID = Int32.Parse(tbxDoctorID.Text.Trim());
 
                 }
                 // save success as int
